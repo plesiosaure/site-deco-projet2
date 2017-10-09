@@ -1,9 +1,23 @@
-
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
 body {
     padding: 0;
+  font-family: 'Roboto', 'Open Sans', serif;
+  font-weight: 400;
 }
+
+
+header {
+  background-color: rgba(37,37,37,1);
+  color: rgb(225,225,225);
+}
+
+
+a.navbar-brand {
+  margin-left: 500px;
+}
+
+
 header.homehead {
     background: url(../img/bg-home.jpg);
     height:1131px;
@@ -157,5 +171,6 @@ header.homehead h1 {
     .right-clear{
     padding-right: 0;
     }
+
 
 }
