@@ -1,12 +1,6 @@
-/*
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
-*/
-/* 
-    Created on : 9 oct. 2017, 15:40:35
-    Author     : wilder
-*/
+
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
 body {
     padding: 0;
 }
@@ -26,4 +20,142 @@ header.homehead h1 {
     color: darkgrey;
     text-transform: uppercase;
     font-size: 3em;
+}
+
+.nb-footer{
+  background: #646464;
+  margin-top: 60px;
+  padding-bottom: 30px;
+}
+.nb-footer .footer-single{
+  margin-top: 30px;
+}
+.nb-footer .footer-title{
+  display: block;
+  margin: 10px 0 25px 0;
+  border-bottom: 1px solid black;
+}
+.nb-footer .footer-single a{
+	text-decoration: none;
+}
+
+.nb-footer .footer-single h2{
+  font-size: 18px;
+  font-weight: 200;
+  display: inline-block;
+  border-bottom: 2px ;
+  padding-bottom: 5px;
+  margin-bottom: -2px;
+}
+.nb-footer .footer-single li{
+  border-top: solid 1px #353535;
+}
+.nb-footer .footer-single li{
+  border-top: none;
+}
+.nb-footer .footer-single li a{
+  color: #979797;
+  font-size: 15px;
+  font-family: 'Roboto', sans-serif;
+  padding: 6px 0px;
+  display: block;
+  transition:all 0.4s ease-in-out;
+}
+.nb-footer .footer-single li a:hover{
+  color: #49FF00;
+}
+.nb-footer .dummy-logo {
+    margin-top: 11px;
+    padding-bottom: 9px;
+}
+.nb-footer .dummy-logo .icon {
+    margin-right: 10px;
+    border-radius: 20px;
+    margin-top: 24px;
+}
+.nb-footer .brand {
+    background: #7BFF00;
+}
+.nb-footer .dummy-logo i {
+    font-size: 50px;
+    color: #fff;
+    padding: 5px;
+}
+
+.nb-footer .dummy-logo h2 {
+  font-size: 24px !important;
+  border-bottom: none;
+  padding: 5px 0;
+}
+.nb-footer .btn-footer{
+  border: 1px solid black;
+  margin-top: 10px;
+  color: black;
+}
+.nb-footer .btn-footer:hover{
+  background: #49FF00;
+  color: black;
+  transition:all 0.4s ease-in-out;
+
+}
+.nb-footer .useful-links li a{
+  text-transform: uppercase;
+}
+.nb-footer .footer-project a{
+  font-size: 13px;
+}
+
+
+.nb-footer .footer-project .footer-title{
+  margin-top: 0;
+}
+.nb-footer .footer-single p, .footer-single address{
+  color: #979797;
+  font-size: 18px;
+  margin-top: 5px;
+  line-height: 22px;
+}
+.nb-copyright{
+  background: black;
+  padding-bottom: 10px;
+}
+ .nb-copyright .copyrt{
+  margin-top: 22px;
+  font-size: 14px;
+  font-family: 'Roboto', sans-serif;
+}
+.nb-copyright .copyrt a{
+  color: #49FF00;
+}
+.nb-copyright .footer-social{
+	margin-top: 10px;
+}
+.nb-copyright .footer-social i{
+  padding: 5px 10px;
+  color: #999;
+  border: 1px solid #333;
+  margin-top: 10px;
+  font-size: 20px;
+  border-radius: 5px;
+  transition:all 0.4s ease-in-out;
+}
+.nb-copyright .footer-social i:hover{
+  background: black;
+  color: blue;
+}
+.nb-copyright .footer-social .fa-facebook{
+  padding: 5px 14px;
+}
+@media(max-width: 767px){
+     
+     .xs-center{
+    text-align: center;
+    }
+    .left-clear{
+    padding-left: 0;
+    }
+    .right-clear{
+    padding-right: 0;
+    }
+
 }
