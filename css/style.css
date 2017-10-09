@@ -2,7 +2,7 @@
 
 body {
     padding: 0;
-  font-family: 'Roboto', 'Open Sans', serif;
+  font-family: 'Roboto', sans-serif;
   font-weight: 400;
 }
 
@@ -20,6 +20,7 @@ a.navbar-brand {
 
 header.homehead {
     background: url(../img/bg-home.jpg);
+    background-size: cover;
     height:1131px;
     
 }
@@ -70,7 +71,6 @@ header.homehead h1 {
 .nb-footer .footer-single li a{
   color: #979797;
   font-size: 15px;
-  font-family: 'Roboto', sans-serif;
   padding: 6px 0px;
   display: block;
   transition:all 0.4s ease-in-out;
@@ -136,7 +136,7 @@ header.homehead h1 {
  .nb-copyright .copyrt{
   margin-top: 22px;
   font-size: 14px;
-  font-family: 'Roboto', sans-serif;
+  
 }
 .nb-copyright .copyrt a{
   color: #49FF00;
@@ -160,6 +160,7 @@ header.homehead h1 {
 .nb-copyright .footer-social .fa-facebook{
   padding: 5px 14px;
 }
+
 @media(max-width: 767px){
      
      .xs-center{
@@ -171,6 +172,11 @@ header.homehead h1 {
     .right-clear{
     padding-right: 0;
     }
-
+    
+    header.homehead {
+   
+    height:450px;
+    
+    }
 
 }
