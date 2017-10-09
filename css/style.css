@@ -1,0 +1,45 @@
+body {
+  font-family: 'Roboto', 'Open Sans', serif;
+  font-weight: 400;
+  
+}
+
+header {
+  background-color: rgba(37,37,37,1);
+  color: rgb(225,225,225);
+}
+
+
+a.navbar-brand {
+  margin-left: 500px;
+}
+
+
+
+
+@media screen and (max-width: 750px) {
+  
+  
+
+}
+
+@media screen and (min-width: 750px) {
+  
+}
+
+/* Media queries home page */
+
+@media screen and (max-width: 950px) {
+  
+  
+
+  
+
+}
+
+@media screen and (max-width: 750px) {
+
+    width: 194px;
+    height: 221px;
+  
+}
