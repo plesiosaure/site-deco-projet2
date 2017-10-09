@@ -1,4 +1,26 @@
+
 @import url('https://fonts.googleapis.com/css?family=Roboto');
+
+body {
+    padding: 0;
+}
+header.homehead {
+    background: url(../img/bg-home.jpg);
+    height:1131px;
+    
+}
+header.homehead h1 {
+    color: white;
+}
+.vertical-align {
+    display: flex;
+    align-items: center;
+}
+.bigtitle {
+    color: darkgrey;
+    text-transform: uppercase;
+    font-size: 3em;
+}
 
 .nb-footer{
   background: #646464;
@@ -135,4 +157,5 @@
     .right-clear{
     padding-right: 0;
     }
+
 }
