@@ -13,9 +13,6 @@ header {
 }
 
 
-a.navbar-brand {
-  margin-left: 500px;
-}
 
 
 header.homehead {
@@ -27,6 +24,14 @@ header.homehead {
 header.homehead h1 {
     color: white;
 }
+
+.navbar-default .navbar-toggle {
+     border-color: black; 
+}
+.navbar-default .navbar-nav > li.active > a {
+  border-color: #4194d3;
+}
+
 .vertical-align {
     display: flex;
     align-items: center;
@@ -180,3 +185,13 @@ header.homehead h1 {
     }
 
 }
+@media (min-width: 992px){
+a.navbar-brand{
+  margin-left: 200px;
+}
+.navbar-default.ac-transparent-navbar {
+    background-color: transparent !important;
+    -webkit-transition: all .5s ease-in-out;
+    transition: all .5s ease-in-out;
+}
+  }
