@@ -1,7 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
+body, html {
+    height: 100%;
+}
+
 body {
-    padding: 0;
+  padding: 0;
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
 }
@@ -12,30 +16,62 @@ header {
   color: rgb(225,225,225);
 }
 
+.vertical-align {
+    display: flex;
+    align-items: center;
+}
 
-a.navbar-brand {
-  margin-left: 500px;
+body {
+   
 }
 
 
 header.homehead {
     background: url(../img/bg-home.jpg);
     background-size: cover;
-    height:1131px;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100%;
     
+    
+    
+}
+main.homemain  {
+     letter-spacing: 1px;
+     /*margin-top: 7vw;*/
+     margin-top:40px;
+    
+   
 }
 header.homehead h1 {
     color: white;
+    letter-spacing: 1px;
+   
 }
-.vertical-align {
-    display: flex;
-    align-items: center;
-}
-.bigtitle {
-    color: darkgrey;
+
+header.homehead h1 span {
     text-transform: uppercase;
-    font-size: 3em;
+    font-size: 2em;
+    display: block;
+    margin-top: 30px;
+    
 }
+
+.bigtitle {
+    color: rgb(85, 85, 85);
+    text-transform: uppercase;
+    font-size: 4em;
+    /*margin: 3vw 0 20px;*/
+    margin-bottom: 20px;
+    font-weight: bold;
+   
+}
+
+a.navbar-brand {
+  margin-left: 500px;
+}
+
+/* ------------- FOOTER ----------------*/
 
 .nb-footer{
   background: #646464;
@@ -175,8 +211,41 @@ header.homehead h1 {
     
     header.homehead {
    
-    height:450px;
+      
     
     }
 
+}
+/*@media(max-width: 575px){
+    
+    header.homehead h1 span {
+       
+        font-size: 1.5em;
+          margin-top: 30px;
+
+    }
+
+    .bigtitle {
+        font-size: 2em;
+        margin: 50px 0 30px;
+       
+
+    }
+}
+*/
+@media(max-width: 480px){
+    
+    header.homehead h1 span {
+       
+        font-size: 1.5em;
+          margin-top: 20px;
+
+    }
+
+    .bigtitle {
+        font-size: 2em;
+        margin: 1vw 0;
+       
+
+    }
 }
