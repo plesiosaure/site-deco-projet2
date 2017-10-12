@@ -25,6 +25,11 @@ header.homehead h1 {
     color: white;
 }
 
+main.main-intern {
+  padding-top: 50px;
+
+}
+
 .navbar-default .navbar-toggle {
      border-color: black; 
 }
