@@ -38,7 +38,8 @@ header.homehead {
 main.homemain  {
      letter-spacing: 1px;
      /*margin-top: 7vw;*/
-     margin-top:40px;
+     padding:40px 0;
+     background:rgba(255, 244, 196, 0.51);
     
    
 }
@@ -96,7 +97,7 @@ main.main-intern {
 /* ------------- FOOTER ----------------*/
 
 .nb-footer{
-  background: #D0D3D4;
+  background: rgba(255, 244, 196, 0.51);
   padding-bottom: 30px;
 }
 .nb-footer .footer-single{
@@ -134,7 +135,7 @@ main.main-intern {
   transition:all 0.4s ease-in-out;
 }
 .nb-footer .footer-single li a:hover{
-  color: #49FF00;
+  color: #94de9e;
 }
 .nb-footer .dummy-logo {
     margin-top: 11px;
@@ -165,7 +166,7 @@ main.main-intern {
   color: black;
 }
 .nb-footer .btn-footer:hover{
-  background: #49FF00;
+  background: #94de9e;
   color: black;
   transition:all 0.4s ease-in-out;
 
@@ -197,7 +198,7 @@ main.main-intern {
   
 }
 .nb-copyright .copyrt a{
-  color: #49FF00;
+  color: #94de9e;
 }
 .nb-copyright .footer-social{
 	margin-top: 10px;
@@ -213,7 +214,7 @@ main.main-intern {
 }
 .nb-copyright .footer-social i:hover{
   background: black;
-  color: #49FF00;
+  color: #94de9e;
 }
 .nb-copyright .footer-social .fa-facebook{
   padding: 5px 14px;
@@ -226,18 +227,12 @@ main.main-intern {
   letter-spacing: .4em;
 }
 
-.backgroundrea {
-  background-image: url(../img/marbre.jpg);
-  height: 100%;
-  top: 0;
-  bottom: 0;
-  right: 0;
-}
+
 
 
 .title {
   text-align: center;
-  font-family: 'Oswald';
+  
   font-weight: 100;
   font-size: 3.75rem;
   letter-spacing: 5px;
@@ -255,7 +250,7 @@ main.main-intern {
 p {
   margin: 0 auto 2rem;
   text-align: center;
-  font-family: 'oswald';
+  
   font-size: 1.25rem;
   color: #444;
   font-weight: 100;
@@ -279,10 +274,10 @@ p {
   display: block;
   width: 90%;
   height: 250px;
-  margin: 0 auto 2rem;
+  margin: 0 auto 3rem;
   background-size: cover;
   border-radius: 10px;
-  box-shadow: 0px 25px 50px rgba(0, 0, 0, 0.5);
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
   overflow: hidden;
   transition: all .4s ease;
 }
@@ -295,7 +290,7 @@ p {
   .case-study {
     display: inline-block;
     width: 45%;
-    margin-left: 25px;
+    margin: 20px;
   }
 }
 
@@ -334,7 +329,7 @@ p {
   margin-bottom: 9rem;
   margin-top: 5rem;
   font-size: 2.25rem;
-  font-family: 'Oswald';
+  
   font-weight: 100;
   color: white;
   text-align: center;
@@ -349,7 +344,7 @@ p {
   top: 200px;
   padding: 20px;
   margin: 0 auto;
-  font-family: 'Oswald';
+  
   color: white;
   letter-spacing: 3px;
   text-decoration: none;
