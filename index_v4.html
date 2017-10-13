@@ -4,9 +4,10 @@
   <meta charset="utf-8">
   <title>Home Sweet Home décoration d'intérieur</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-  <link rel="stylesheet" href="css/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">-->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous"> <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style_v3.css">
   <!--Polices et icones-->
   <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
   <link rel="stylesheet" href="js/js.js">
@@ -20,34 +21,33 @@
     <![endif]-->
   </head>
   <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top ac-transparent-navbar">
-      <div class="container-fluid">  
-
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">Home Sweet Home</a>
-        </div>
-
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav navbar-right">
-            <li class="active"><a href="index.html">Accueil</a></li>
-            <li><a href="realisations.html">Nos réalisations</a></li>
-            <li><a href="presse.html">Presse</a></li>
-            <li><a href="contact.html">Nous contacter</a></li>
+  
+   <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-inverse bg-inverse fixed-top" id="mainNav">
+      <div class="container-fluid">
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">Home Sweet Home</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          
+          <i class="fa fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger active" href="/">Accueil</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#lastreal">Nos réalisations</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="presse.html">Presse</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link js-scroll-trigger" href="#contact">Nous contacter</a>
+            </li>
           </ul>
         </div>
-      </div>            
-      
+      </div>
     </nav>
-
-    
 
     <header class="homehead vertical-align">
       <div class="container">
@@ -58,16 +58,12 @@
     </header>
     <main class="homemain">
       <div class="container-fluid">
-        <div class="row">
-          <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-3 text-center">
-            <div class="bigtitle">Bienvenue !</div>
-            <p>Décoratrice d’intérieur et syliste déco basée à Paris, j’aime les objets et leur histoire, et les mélanger pour en construire de nouvelles. Que ce soit pour décorer des lieux ou mettre en scène des objets pour des marques, je vous propose d’être à l’écoute de vos besoins et de vous accompagner dans vos projets.</p>
-          </div>
-        </div>
-       </div
+            <div class="bigtitle text-center">Bienvenue !</div>
+            <p>Décoratrice d’intérieur et syliste déco basée à Paris, j’aime les objets et leur histoire, et les mélanger pour en construire de nouvelles. Que ce soit pour décorer des lieux ou mettre en scène des objets pour des marques, text-centerje vous propose d’être à l’écoute de vos besoins et de vous accompagner dans vos projets.</p>
+         
+      </div>
     </main>
-
-      <section class="backgroundrea" id="lastreal">
+      <section class="backgroundrea">
         <div class="sous-titre"><h2>DERNIÈRES RÉALISATIONS</h2></div>
         <div class="case-study-gallery">
           <div class="case-study study1">
@@ -183,7 +179,8 @@
 
           <script src="https://use.fontawesome.com/75d6fb782b.js"></script>
           <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-          <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+          <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>-->
+         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
         </body>
 
         </html>
