@@ -1,4 +1,5 @@
-// Burger menu
-$('#burger_icon, .close').on('click',function(){
-   $('.menuburger').toggleClass('open');
-}); 
+$('body').scrollspy({ target: '#navbar-example' })
+
+$('[data-spy="scroll"]').each(function () {
+  var $spy = $(this).scrollspy('refresh')
+})

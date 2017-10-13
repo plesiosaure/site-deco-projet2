@@ -10,7 +10,7 @@
     <!--Polices et icones-->
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
     <link rel="stylesheet" href="js/js.js">
-
+    <script src='https://www.google.com/recaptcha/api.js'></script>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -19,8 +19,8 @@
     <![endif]-->
   </head>
 
-  <body>
-<nav class="navbar navbar-default navbar-fixed-top ac-transparent-navbar">
+  <body data-spy="scroll" data-target=".navbar">
+<nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container-fluid">  
 
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -37,16 +37,18 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
-            <li class="active"><a href="index.html">Accueil</a></li>
+            <li><a href="index.html">Accueil</a></li>
             <li><a href="realisations.html">Nos réalisations</a></li>
             <li><a href="presse.html">Presse</a></li>
-            <li><a href="contact.html">Nous contacter</a></li>
+            <li class="active"><a href="contact.html">Nous contacter</a></li>
           </ul>
         </div>
-      </div>              
-</nav>
+      </div>            
+      
+    </nav>
 
 <!--form-->
+<main class="main-intern">
 <div class="container">
   <h2>Pour nous contacter</h2>
   <form action="/action_page.phps">
@@ -69,11 +71,11 @@
 
     <button type="submit" class="btn btn-default">Submit</button>
   </form>
+  <div class="g-recaptcha" data-sitekey="6LcOVDQUAAAAAIXf5Qh5BgqtjXaW2U_JNEFbZVWE"></div>
 </div>
   </form>
-
-
 </div>
+</main>
 
 <footer>
     <section class="nb-footer">
