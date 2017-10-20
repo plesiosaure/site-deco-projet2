@@ -10,6 +10,9 @@ body {
   
 }
 
+h2 {
+    margin : 50px 0;
+}
 
 header {
   background-color: rgba(37,37,37,1);
@@ -291,7 +294,6 @@ a.navbar-brand {
 
 p {
   margin: 0 auto 2rem;
-  text-align: center;
   font-size: 1.25rem;
   color: #444;
   font-weight: 100;
