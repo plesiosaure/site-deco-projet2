@@ -38,6 +38,13 @@ header.homehead {
     
     
 }
+
+main {
+  padding-top: 50px;
+  padding-bottom: 50px;
+
+}
+
 main.homemain  {
      letter-spacing: 1px;
      /*margin-top: 7vw;*/
@@ -66,11 +73,7 @@ header.homehead h1 span {
  }   
 
 
-main.main-intern {
-  padding-top: 50px;
-  padding-bottom: 50px;
 
-}
 
 
 .navbar-default .navbar-toggle {
@@ -448,10 +451,7 @@ p {
 
 /*------------Nos Realisations Header-------------*/
 
-.realhead {
-  margin-top: 70px;
-  background: #fff;
-}
+
 
 .realtitle {
   color: rgb(85, 85, 85);
