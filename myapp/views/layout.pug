@@ -1,0 +1,114 @@
+doctype html
+html(lang='fr')
+  head
+    meta(charset='utf-8')
+    title Home Sweet Home décoration d'intérieur
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css', integrity='sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u', crossorigin='anonymous')
+    link(rel='stylesheet', href='css/style.css')
+    // Polices et icones
+    link(href='https://fonts.googleapis.com/css?family=Roboto:400,700', rel='stylesheet')
+    link(rel='stylesheet', href='js/js.js')
+    link(rel='shortcut icon', href='img/HSH.png', type='image/x-icon')
+    script(src='https://www.google.com/recaptcha/api.js')
+    // HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries
+    // WARNING: Respond.js doesn't work if you view the page via file://
+    //if lt IE 9
+      script(src='https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js')
+      script(src='https://oss.maxcdn.com/respond/1.4.2/respond.min.js')
+  body(data-spy='scroll', data-target='.navbar')
+    nav.navbar.navbar-inverse.navbar-fixed-top
+      .container-fluid
+        // Brand and toggle get grouped for better mobile display
+        .navbar-header
+          button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1', aria-expanded='false')
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand(href='#') Home Sweet Home
+        // Collect the nav links, forms, and other content for toggling
+        #bs-example-navbar-collapse-1.collapse.navbar-collapse
+          ul.nav.navbar-nav.navbar-right
+            li.active
+              a(href='/') Accueil
+            li
+              a(href='realisations') Nos réalisations
+            li
+              a(href='presse') Presse
+            li
+              a(href='contact') Nous contacter
+
+    block content
+
+    footer
+      section.nb-footer
+        .container
+          .row
+            .col-md-3.col-sm-6
+              .footer-single
+                .dummy-logo
+                  h2 Lorem Ipsum
+                  p orem ipsum dolor sit amet, consectetur adipiscing elit.
+                p
+                  | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus felis diam, vulputate in risus eu, porttitor condimentum purus. Phasellus ullamcorper, odio id feugiat bibendum.
+                a.btn.btn-footer(href='') Read More
+            .col-md-3.col-sm-6
+            .clearfix.visible-sm
+            .col-md-3.col-sm-6
+              .footer-single.useful-links
+                .footer-title
+                  h2 Navigation
+                ul.list-unstyled
+                  li
+                    a(href='')
+                      | Accueil 
+                      i.fa.fa-angle-right.pull-right
+                  li
+                    a(href='')
+                      | Nos Réalisations 
+                      i.fa.fa-angle-right.pull-right
+                  li
+                    a(href='')
+                      | Presse 
+                      i.fa.fa-angle-right.pull-right
+                  li
+                    a(href='')
+                      | Nous Contacter 
+                      i.fa.fa-angle-right.pull-right
+            .col-md-3.col-sm-6
+              .footer-single
+                .footer-title
+                  h2 Contact Information
+                address
+                  i.fa.fa-map-marker(aria-hidden='true')
+                  |  999, Holly Eiusmod Tempor, City
+                  br
+                  |            Your State, Country 
+                  br
+                  i.fa.fa-phone
+                  |   987 654 3210 
+                  br
+      section.nb-copyright
+        .container
+          .row
+            .col-sm-6.copyrt.xs-center
+              | 2015 © All Rights Reserved. 
+              a(href='') Terms & Conditions
+              |  
+              a(href='') Privacy Policy
+            .col-sm-6.text-right.xs-center
+              ul.list-inline.footer-social
+                li
+                  a(href='')
+                    i.fa.fa-facebook
+                li
+                  a(href='')
+                    i.fa.fa-twitter
+                li
+                  a(href='')
+                    i.fa.fa-instagram
+    script(src='https://use.fontawesome.com/75d6fb782b.js')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js', integrity='sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa', crossorigin='anonymous')
