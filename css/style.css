@@ -39,7 +39,7 @@ main.homemain  {
      letter-spacing: 1px;
      /*margin-top: 7vw;*/
      padding:40px 0;
-     background:rgba(255, 244, 196, 0.51);
+     background:rgba(127, 191, 63, 0.21);
     
    
 }
@@ -97,7 +97,7 @@ main.main-intern {
 /* ------------- FOOTER ----------------*/
 
 .nb-footer{
-  background: rgba(255, 244, 196, 0.51);
+  background: rgba(127, 191, 63, 0.31);
   padding-bottom: 30px;
 }
 .nb-footer .footer-single{
