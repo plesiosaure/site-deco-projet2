@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto');
 
 body, html {
     height: 100%;
@@ -9,8 +8,12 @@ body {
   padding: 0;
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
+  
 }
 
+h2 {
+    margin : 50px 0;
+}
 
 header {
   background-color: rgba(37,37,37,1);
@@ -38,8 +41,12 @@ header.homehead {
 main.homemain  {
      letter-spacing: 1px;
      /*margin-top: 7vw;*/
+
      padding:40px 0;
-     background:rgba(255, 244, 196, 0.51);
+     background:rgba(127, 191, 63, 0.21);
+     margin:40px 5%;
+     /*background:rgba(255, 244, 196, 0.51);*/
+
     
    
 }
@@ -58,6 +65,7 @@ header.homehead h1 span {
     margin-top: 30px;
  }   
 
+
 main.main-intern {
   padding-top: 50px;
   padding-bottom: 50px;
@@ -72,13 +80,59 @@ main.main-intern {
   border-color: #4194d3;
 }
   
-/*a.navbar-brand {
-  margin-left: 500px;
-
-}*/
 
 
+/* ---------------- Nav ------------------*/
+#mainNav {
+   font-weight: 700;
+   border: none;
+  background: #2C3E50; }
+  #mainNav a:focus {
+    outline: none; }
+  #mainNav .navbar-brand {
+    font-size: 1.1rem;
+    color: white; }
+    #mainNav .navbar-brand.active, #mainNav .navbar-brand:active, #mainNav .navbar-brand:focus, #mainNav .navbar-brand:hover {
+      color: white; }
+  #mainNav .navbar-nav {
+    letter-spacing: 1px; }
+    #mainNav .navbar-nav li.nav-item a.nav-link {
+      color: white; }
+      #mainNav .navbar-nav li.nav-item a.nav-link:hover {
+        color: #18BC9C;
+        outline: none; }
+      #mainNav .navbar-nav li.nav-item a.nav-link:active, #mainNav .navbar-nav li.nav-item a.nav-link:focus {
+        color: white; }
+  #mainNav .navbar-toggler {
+    font-size: 14px;
+    padding: 11px;
+     color: white;
+    border-color: white; }
+    #mainNav .navbar-toggler:focus, #mainNav .navbar-toggler:hover {
+      color: white;
+      border-color: #18BC9C;
+      background-color: #18BC9C; }
 
+    
+    @media (min-width: 992px) {
+ 
+    main.homemain  {
+     margin:40px 20%;
+   
+   
+}
+    #mainNav .navbar-nav > li.nav-item > a.nav-link.active {
+      color: white;
+      border-radius: 3px;
+      color: #18BC9C; }
+      #mainNav .navbar-nav > li.nav-item > a.nav-link.active:active, #mainNav .navbar-nav > li.nav-item > a.nav-link.active:focus, #mainNav .navbar-nav > li.nav-item > a.nav-link.active:hover {
+        color:  #18BC9C; }
+  #mainNav.navbar-shrink {
+    padding-top: 10px;
+    padding-bottom: 10px; }
+    }
+        
+/* ---------------- Home bienvenue ------------------*/
 .bigtitle {
     color: rgb(85, 85, 85);
     text-transform: uppercase;
@@ -97,7 +151,8 @@ main.main-intern {
 /* ------------- FOOTER ----------------*/
 
 .nb-footer{
-  background: rgba(255, 244, 196, 0.51);
+  background: rgba(127, 191, 63, 0.31);
+  /*background: rgba(255, 244, 196, 0.51);*/
   padding-bottom: 30px;
 }
 .nb-footer .footer-single{
@@ -109,7 +164,7 @@ main.main-intern {
   border-bottom: 1px solid black;
 }
 .nb-footer .footer-single a{
-  text-decoration: none;
+	text-decoration: none;
 }
 
 .nb-footer .footer-single h2{
@@ -201,7 +256,7 @@ main.main-intern {
   color: #94de9e;
 }
 .nb-copyright .footer-social{
-  margin-top: 10px;
+	margin-top: 10px;
 }
 .nb-copyright .footer-social i{
   padding: 5px 10px;
@@ -232,7 +287,7 @@ main.main-intern {
 
 .title {
   text-align: center;
-  
+
   font-weight: 100;
   font-size: 3.75rem;
   letter-spacing: 5px;
@@ -249,8 +304,7 @@ main.main-intern {
 
 p {
   margin: 0 auto 2rem;
-  text-align: center;
-  
+
   font-size: 1.25rem;
   color: #444;
   font-weight: 100;
@@ -329,7 +383,6 @@ p {
   margin-bottom: 9rem;
   margin-top: 5rem;
   font-size: 2.25rem;
-  
   font-weight: 100;
   color: white;
   text-align: center;
@@ -344,7 +397,7 @@ p {
   top: 200px;
   padding: 20px;
   margin: 0 auto;
-  
+
   color: white;
   letter-spacing: 3px;
   text-decoration: none;
@@ -578,7 +631,7 @@ p {
 
 }
 
-/*@media(max-width: 575px){
+@media(max-width: 575px){
     
     header.homehead h1 span {
        
@@ -594,7 +647,7 @@ p {
 
     }
 }
-*/
+
 @media(max-width: 480px){
     
     header.homehead h1 span {
@@ -612,16 +665,8 @@ p {
     }
 }
 
-@media (min-width: 992px){
-a.navbar-brand{
-  margin-left: 200px;
-}
-.navbar-default.ac-transparent-navbar {
-    background-color: transparent !important;
-    -webkit-transition: all .5s ease-in-out;
-    transition: all .5s ease-in-out;
-}
-  }
+
+
 
   @media(min-width:767px) {
     #portfolio .portfolio-item {

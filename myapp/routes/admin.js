@@ -88,4 +88,10 @@ router.get('/', function(req, res, next) {
   }
 });
 
+router.get('/logout', function(req, res, next) {
+  req.session.connect = false;
+  res.redirect("/login");
+  
+});
+
 module.exports = router;

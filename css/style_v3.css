@@ -38,8 +38,7 @@ header.homehead {
 main.homemain  {
      letter-spacing: 1px;
      /*margin-top: 7vw;*/
-     padding:40px 0;
-     background:rgba(127, 191, 63, 0.21);
+     margin-top:40px;
     
    
 }
@@ -72,10 +71,9 @@ main.main-intern {
   border-color: #4194d3;
 }
   
-/*a.navbar-brand {
+a.navbar-brand {
   margin-left: 500px;
-
-}*/
+}
 
 
 
@@ -97,7 +95,7 @@ main.main-intern {
 /* ------------- FOOTER ----------------*/
 
 .nb-footer{
-  background: rgba(127, 191, 63, 0.31);
+  background: #646464;
   padding-bottom: 30px;
 }
 .nb-footer .footer-single{
@@ -119,7 +117,6 @@ main.main-intern {
   border-bottom: 2px ;
   padding-bottom: 5px;
   margin-bottom: -2px;
-
 }
 .nb-footer .footer-single li{
   border-top: solid 1px #353535;
@@ -135,7 +132,7 @@ main.main-intern {
   transition:all 0.4s ease-in-out;
 }
 .nb-footer .footer-single li a:hover{
-  color: #94de9e;
+  color: #49FF00;
 }
 .nb-footer .dummy-logo {
     margin-top: 11px;
@@ -166,7 +163,7 @@ main.main-intern {
   color: black;
 }
 .nb-footer .btn-footer:hover{
-  background: #94de9e;
+  background: #49FF00;
   color: black;
   transition:all 0.4s ease-in-out;
 
@@ -198,7 +195,7 @@ main.main-intern {
   
 }
 .nb-copyright .copyrt a{
-  color: #94de9e;
+  color: #49FF00;
 }
 .nb-copyright .footer-social{
 	margin-top: 10px;
@@ -214,7 +211,7 @@ main.main-intern {
 }
 .nb-copyright .footer-social i:hover{
   background: black;
-  color: #94de9e;
+  color: blue;
 }
 .nb-copyright .footer-social .fa-facebook{
   padding: 5px 14px;
@@ -227,12 +224,18 @@ main.main-intern {
   letter-spacing: .4em;
 }
 
-
+.backgroundrea {
+  background-image: url(../img/marbre.jpg);
+  height: 100%;
+  top: 0;
+  bottom: 0;
+  right: 0;
+}
 
 
 .title {
   text-align: center;
-  
+  font-family: 'Oswald';
   font-weight: 100;
   font-size: 3.75rem;
   letter-spacing: 5px;
@@ -250,7 +253,7 @@ main.main-intern {
 p {
   margin: 0 auto 2rem;
   text-align: center;
-  
+  font-family: 'oswald';
   font-size: 1.25rem;
   color: #444;
   font-weight: 100;
@@ -274,10 +277,10 @@ p {
   display: block;
   width: 90%;
   height: 250px;
-  margin: 0 auto 3rem;
+  margin: 0 auto 2rem;
   background-size: cover;
   border-radius: 10px;
-  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 25px 50px rgba(0, 0, 0, 0.5);
   overflow: hidden;
   transition: all .4s ease;
 }
@@ -290,7 +293,7 @@ p {
   .case-study {
     display: inline-block;
     width: 45%;
-    margin: 20px;
+    margin-left: 25px;
   }
 }
 
@@ -329,7 +332,7 @@ p {
   margin-bottom: 9rem;
   margin-top: 5rem;
   font-size: 2.25rem;
-  
+  font-family: 'Oswald';
   font-weight: 100;
   color: white;
   text-align: center;
@@ -344,7 +347,7 @@ p {
   top: 200px;
   padding: 20px;
   margin: 0 auto;
-  
+  font-family: 'Oswald';
   color: white;
   letter-spacing: 3px;
   text-decoration: none;
@@ -392,167 +395,6 @@ p {
 .study6 {
   background-image: url(../img/img2.jpg);
 }
-
-/*------------Nos Realisations Header-------------*/
-
-.realhead {
-  margin-top: 70px;
-  background: #fff;
-}
-
-.realtitle {
-  color: rgb(85, 85, 85);
-    text-transform: uppercase;
-    font-size: 4em;
-    font-weight: bold;
-}
-
-#portfolio .portfolio-item {
-    right: 0;
-    margin: 0 0 15px;
-}
-
-#portfolio .portfolio-item .portfolio-link {
-    display: block;
-    position: relative;
-    margin: 0 auto;
-    max-width: 400px;
-}
-
-#portfolio .portfolio-item .portfolio-link .portfolio-hover {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    background: #1ee2e7;
-    -webkit-transition: all ease .5s;
-    -moz-transition: all ease .5s;
-    transition: all ease .5s;
-}
-
-#portfolio .portfolio-item .portfolio-link .portfolio-hover:hover {
-    opacity: 1;
-}
-
-#portfolio .portfolio-item .portfolio-link .portfolio-hover .portfolio-hover-content {
-    position: absolute;
-    top: 50%;
-    width: 100%;
-    height: 20px;
-    margin-top: -12px;
-    text-align: center;
-    font-size: 20px;
-    color: #fff;
-}
-
-#portfolio .portfolio-item .portfolio-link .portfolio-hover .portfolio-hover-content i {
-    margin-top: -12px;
-}
-
-#portfolio .portfolio-item .portfolio-link .portfolio-hover .portfolio-hover-content h3,
-#portfolio .portfolio-item .portfolio-link .portfolio-hover .portfolio-hover-content h4 {
-    margin: 0;
-}
-
-#portfolio .portfolio-item .portfolio-caption {
-    margin: 0 auto;
-    padding: 25px;
-    max-width: 400px;
-    text-align: center;
-    background-color: #fff;
-}
-
-#portfolio .portfolio-item .portfolio-caption h4 {
-    margin: 0;
-    text-transform: none;
-}
-
-#portfolio .portfolio-item .portfolio-caption p {
-    margin: 0;
-    font-family: "Droid Serif","Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-size: 16px;
-    font-style: italic;
-}
-
-#portfolio * {
-    z-index: 2;
-}
-
-
-.portfolio-modal .modal-content {
-    padding: 100px 0;
-    min-height: 100%;
-    border: 0;
-    border-radius: 0;
-    text-align: center;
-    background-clip: border-box;
-    -webkit-box-shadow: none;
-    box-shadow: none;
-}
-
-.portfolio-modal .modal-content h2 {
-    margin-bottom: 15px;
-    font-size: 3em;
-}
-
-.portfolio-modal .modal-content p {
-    margin-bottom: 30px;
-}
-
-.portfolio-modal .modal-content p.item-intro {
-    margin: 20px 0 30px;
-    font-family: "Droid Serif","Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-size: 16px;
-    font-style: italic;
-}
-
-.portfolio-modal .modal-content ul.list-inline {
-    margin-top: 0;
-    margin-bottom: 30px;
-}
-
-.portfolio-modal .modal-content img {
-    margin-bottom: 30px;
-}
-
-.portfolio-modal .close-modal {
-    position: absolute;
-    top: 25px;
-    right: 25px;
-    width: 75px;
-    height: 75px;
-    background-color: transparent;
-    cursor: pointer;
-}
-
-.portfolio-modal .close-modal:hover {
-    opacity: .3;
-}
-
-.portfolio-modal .close-modal .lr {
-    z-index: 1051;
-    width: 1px;
-    height: 75px;
-    margin-left: 35px;
-    background-color: #222;
-    -webkit-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    transform: rotate(45deg);
-}
-
-.portfolio-modal .close-modal .lr .rl {
-    z-index: 1052;
-    width: 1px;
-    height: 75px;
-    background-color: #222;
-    -webkit-transform: rotate(90deg);
-    -ms-transform: rotate(90deg);
-    transform: rotate(90deg);
-}
-
-
-
-
 
 
 
@@ -622,12 +464,3 @@ a.navbar-brand{
     transition: all .5s ease-in-out;
 }
   }
-
-  @media(min-width:767px) {
-    #portfolio .portfolio-item {
-        margin: 0 0 30px;
-    }
-}
-
-
-

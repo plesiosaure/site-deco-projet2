@@ -27,19 +27,11 @@ html(lang='fr')
             span.icon-bar
             span.icon-bar
             span.icon-bar
-          a.navbar-brand(href='#') Home Sweet Home
+          a.navbar-brand(href='/') Home Sweet Home 
         // Collect the nav links, forms, and other content for toggling
         #bs-example-navbar-collapse-1.collapse.navbar-collapse
-          ul.nav.navbar-nav.navbar-right
-            li.active
-              a(href='/') Accueil
-            li
-              a(href='realisations') Nos réalisations
-            li
-              a(href='presse') Presse
-            li
-              a(href='contact') Nous contacter
-
+            include ./mixins.pug
+            +mainnav(menu_index)
     block content
 
     footer
