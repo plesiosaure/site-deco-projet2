@@ -115,4 +115,23 @@ router.get('/logout', function(req, res, next) {
   
 });
 
+
+router.get('/ajout-article', function(req, res, next) {
+  // res.sendFile(__dirname+'/public/index1.html');
+  connection.query('select * from category', function(error, results){
+	res.render('ajout-produit', {
+		categories : results
+	});
+});
+  res.render('ajout-article');
+});
+
+router.get('/edit-article', function(req, res, next) {
+  // res.sendFile(__dirname+'/public/index1.html');
+  res.render('edit-article');
+});
+
 module.exports = router;
+
+
+
