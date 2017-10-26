@@ -1,0 +1,22 @@
+extends layout
+block content
+
+  // form
+  main.main-intern
+    .container
+      h2.realtitle Contactez-nous
+      form(action='/action_page.phps')
+        .form-group
+          label(for='name')
+          input#name.form-control(type='name', placeholder='Votre nom, prénom', name='name')
+        .form-group
+          label(for='email')
+          input#email.form-control(type='email', placeholder='Votre adresse mail: mail@exemple.com', name='email')
+        .form-group
+          label(for='pwd')
+          input#subject.form-control(type='tetx', placeholder='Le sujet', name='subject')
+        .form-group
+          label(for='comment') Votre demande:
+          textarea#comment.form-control(rows='5', placeholder='Votre texte')
+        button.btn.btn-default(type='submit') Submit
+      .g-recaptcha(data-sitekey='6LcOVDQUAAAAAIXf5Qh5BgqtjXaW2U_JNEFbZVWE')

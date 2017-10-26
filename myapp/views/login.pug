@@ -1,0 +1,13 @@
+extends layout2
+
+block content
+	p=error 
+	p=results
+	p=fields
+	h1 Connect me  
+	form(method="POST" action ="/admin")
+		input(name="username" placeholder="login")
+		br
+		input(name="password" placeholder="password")
+		br
+		button(type="submit") Connect
