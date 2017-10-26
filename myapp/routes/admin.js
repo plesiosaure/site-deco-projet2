@@ -27,24 +27,6 @@ router.get('/', function(req, res, next) {
   }
 });
 
- //GET home page
-router.get('/', function(req, res, next) {
-	// Page de connexion
-
-	/*connection.query(`select * from users where name= ?',[req.body.toto], function (error, results, fields) {
-	 	 res.render('admin', {
-	 	 	title: 'Express',
-	 	 	error : JSON.stringify(error),
-	 	 	results:  JSON.stringify(results),
-	 	 	fields : JSON.stringify(fields)
-	 	 	 });
-
-	});
-
-
-});
-*/
-
 
 
 
@@ -59,31 +41,13 @@ router.post('/', function(req, res, next) {
 	let login= req.body.username;
 	let password = req.body.password ;
 
-	/*connection.query('select * from users where name= "${login}"
-		and password="${password}"', function (error, results, fields) {
- 	 if (results.length==0) {
- 	 	res.send("Erreur");
- 	 }else{
- 	 	req.session.connect=true;
- 	 	res.redirect("/admin");
+	connection.query(`select * from user where pseudo= ? and password= ?` ,[login, password], function (error, results, fields) {
+            if (results.length==0) {
+                   res.send("Erreur");
+            }else{
 
-	}
-
-	});
-
-	if (login == users[0].name && password == users[0].mdp) {
- 	 	req.session.connect=true;
- 	 	res.redirect("/admin");
- 	 }else{
- 	 	res.send("Erreur");
-
- 	 }
-
-
-	// Si faux on lui envoie un message pour l'informer
-	// Si vrai -> On ouvre la session & on le redirige sur /admin
-
-
+            }
+     });
 });
 
 
@@ -94,17 +58,7 @@ router.get("/logout", function(req, res, next) {
 
 });
 
-router.get('/produit-:productID(\\d+)', function(req, res, next) {
-  connection.query('select * from products where id = ?' , [req.params.productID], function (error, results, fields);
-  res.render('produit', {
-		informations: products[req.params.productID]
-	});
 
-router.get('/produits', function(req,req,next) {
-	res.render('produit',{
-		informations: products
-	});
-});
 
 
 router.get('/ajout-article', function(req, res, next) {

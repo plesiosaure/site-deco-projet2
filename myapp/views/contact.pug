@@ -5,7 +5,7 @@ block content
   main.main-intern
     .container
       h2.realtitle Contactez-nous
-      form(action='/contact')
+      form(method='POST' action='/contact')
         .form-group
           label(for='name')
           input#name.form-control(type='name', placeholder='Votre nom, prénom', name='name')
