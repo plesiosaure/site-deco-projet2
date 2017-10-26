@@ -8,3 +8,9 @@ mixin mainnav(i)
         a(href='presse') Presse
       li(class=(!--i) && "active")
         a(href='contact') Nous contacter
+
+        
+        mixin block-product(titre)
+        //on colle la partie de tout ce qui est répété à chaque fois
+        //on ajoute une nouvelle partie identique et on peut changer le titre
+        + block-product ()
