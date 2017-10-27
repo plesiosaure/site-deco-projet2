@@ -44,8 +44,8 @@ CREATE TABLE IF NOT EXISTS `mydb`.`key` (
   CONSTRAINT `fk_key_user`
     FOREIGN KEY (`user_iduser`)
     REFERENCES `mydb`.`user` (`iduser`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 
@@ -78,8 +78,8 @@ CREATE TABLE IF NOT EXISTS `mydb`.`media` (
   CONSTRAINT `fk_media_article1`
     FOREIGN KEY (`article_idarticle`)
     REFERENCES `mydb`.`article` (`idarticle`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 
@@ -105,13 +105,13 @@ CREATE TABLE IF NOT EXISTS `mydb`.`article_has_category` (
   CONSTRAINT `fk_article_has_category_article1`
     FOREIGN KEY (`article_idarticle`)
     REFERENCES `mydb`.`article` (`idarticle`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
   CONSTRAINT `fk_article_has_category_category1`
     FOREIGN KEY (`category_idcategory`)
     REFERENCES `mydb`.`category` (`idcategory`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 

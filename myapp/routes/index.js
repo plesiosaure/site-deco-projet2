@@ -45,6 +45,7 @@ router.get('/realisations/:id(\\d+)', function(req, res, next) {
 
   });
 
+
 });
 
 router.get('/presse', function(req, res, next) {
@@ -89,17 +90,43 @@ router.get('/produit-id:id(\\d+)', function(req, res, next) {
 });
 });
 
-router.get('/admin/edit-produits', function(req, res, next) {
-res.render('edit-produits');
-});
 
-router.post('/admin/edit-produits', function(req, res, next) {
-  // insert into produit values ( req.body.titre, req.body.description)
-});
 
 router.get('/test', function(req, res, next) {
   //res.sendFile(__dirname+'/public/realisations.html');
   res.render('test',{presse: true});
+});
+
+
+router.get('/login', function(req, res, next) {
+  // Hello session !
+  // res.send(req.session.connect);
+  // Si la personne est connectée on affiche la page
+  // Si la personne n'est pas connectée on le redirige sur la page de connexion
+  res.render('login')
+  if(req.session.connect) {
+    res.redirect('/admin-index');
+  }
+});
+
+router.post('/login', function(req, res, next) {
+  // Ici on gère les informations de l'utilisateur
+
+  //res.send(req.body.username);
+  //res.send(req.body['username']);
+
+  // Tester si l'utilisateur existe en BDD  -> Comparer le nom (login) / le password
+  let login= req.body.username;
+  let password = req.body.password ;
+
+  connection.query(`select * from user where pseudo= ? and password= ?` ,[login, password], function (error, results, fields) {
+            if (results.length==0) {
+                   res.send("Erreur");
+            }else{
+              req.session.connect=true;
+        res.redirect("/admin");
+            }
+     });
 });
 
 
