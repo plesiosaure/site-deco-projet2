@@ -3,8 +3,9 @@ var router = express.Router();
 const mysql = require('mysql');
 const multer = require('multer');
 const fs = require('fs');
-const upload = multer({ dest: 'tmp/'});
 
+const upload = multer({ dest: 'tmp/'});
+const nodemailer = require('nodemailer');
 
 var connection = mysql.createConnection({
  	host     : 'localhost',
@@ -88,6 +89,3 @@ router.get('/delete-product', function(req, res, next) {
 
 
 module.exports = router;
-
-
-
