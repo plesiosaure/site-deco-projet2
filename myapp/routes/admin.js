@@ -3,7 +3,7 @@ var router = express.Router();
 const mysql = require('mysql');
 const multer = require('multer');
 const fs = require('fs');
-const upload = multer({ det: 'tmp/'});
+const upload = multer({ dest: 'tmp/'});
 
 
 var connection = mysql.createConnection({
@@ -15,42 +15,6 @@ var connection = mysql.createConnection({
 
 connection.connect();
 
-router.get('/', function(req, res, next) {
-	// Hello session !
-	// res.send(req.session.connect);
-	// Si la personne est connectée on affiche la page
-	// Si la personne n'est pas connectée on le redirige sur la page de connexion
-  if(req.session.connect) {
-  	res.render('admin');
-  } else {
-  	res.redirect("/login");
-  }
-});
-
-
-
-
-
-router.post('/', function(req, res, next) {
-	// Ici on gère les informations de l'utilisateur
-
-	//res.send(req.body.username);
-	//res.send(req.body['username']);
-
-	// Tester si l'utilisateur existe en BDD  -> Comparer le nom (login) / le password
-	let login= req.body.username;
-	let password = req.body.password ;
-
-	connection.query(`select * from user where pseudo= ? and password= ?` ,[login, password], function (error, results, fields) {
-            if (results.length==0) {
-                   res.send("Erreur");
-            }else{
-
-            }
-     });
-});
-
-
 
 router.get("/logout", function(req, res, next) {
   req.session.connect = false;
@@ -59,22 +23,69 @@ router.get("/logout", function(req, res, next) {
 });
 
 
-
-
-router.get('/ajout-article', function(req, res, next) {
-  // res.sendFile(__dirname+'/public/index1.html');
-  connection.query('select * from category', function(error, results){
-	res.render('ajout-produit', {
-		categories : results
-	});
-});
-  res.render('ajout-article');
-});
-
 router.get('/edit-article', function(req, res, next) {
   // res.sendFile(__dirname+'/public/index1.html');
   res.render('edit-article');
 });
+
+
+
+
+
+// GET /admin/
+router.get('/', function(req, res, next) {	
+	connection.query('SELECT DISTINCT article.idarticle, article.*, media.sourceName FROM article, media, category, article_has_category WHERE idarticle=article_has_category.article_idarticle AND article_has_category.category_idcategory=idcategory AND idarticle=media.article_idarticle ;', function (error, results, fields) {
+	  if (error) throw error;
+	  //console.log(results)
+		res.render('admin-index', {products:results});
+	  //console.log(results);
+	});
+	// Afficher la liste des produits de la table 'products' 
+	//;
+});
+
+// GET /admin/create-product 
+router.get('/create-product', function(req, res, next) {
+	res.render('admin-create');
+});
+
+// POST /admin/create-product 
+router.post('/create-product', upload.single('product_sourceName'), function(req, res, next) {
+	// Ajouter un produit dans la table 'products'
+	console.log(req.file);
+	if (req.file.size < (3*1024*1024) && (req.file.mimetype == 'image/png' || req.file.mimetype == 'image/jpg' || req.file.mimetype == 'image/jpeg') ) {
+		fs.rename(req.file.path,'public/img/'+req.file.originalname);
+		
+	} else {
+		res.send('Vous avez fait une erreur dans le téléchargement')
+	}
+
+	connection.query('insert into article values(null, 1, ?, ?, NOW());',[req.body.title,req.body.text], function (error, results, fields) {
+	  if (error) throw error;
+		res.redirect('/admin');
+	  //console.log(results);
+	});
+
+	
+	console.log(req.body);
+
+});
+
+// req.params -> /monlien-:id 
+// req.body -> POST 
+// req.query -> monlien?id=1
+
+// GET /admin/delete-product 
+router.get('/delete-product', function(req, res, next) {
+	// Supprimer le produit en recupérant l'id dans la query 
+	//delete from products where id=
+	connection.query('delete from article where idarticle=?',[req.query.id],function (error, results, fields) {
+	  if (error) throw error;
+		res.redirect('/admin');
+	  //console.log(results);
+	});
+});
+
 
 module.exports = router;
 
