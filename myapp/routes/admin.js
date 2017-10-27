@@ -4,6 +4,7 @@ const mysql = require('mysql');
 const multer = require('multer');
 const fs = require('fs');
 const upload = multer({ det: 'tmp/'});
+const nodemailer = require('nodemailer');
 
 
 var connection = mysql.createConnection({
@@ -14,6 +15,7 @@ var connection = mysql.createConnection({
 });
 
 connection.connect();
+
 
 router.get('/', function(req, res, next) {
 	// Hello session !
@@ -77,6 +79,3 @@ router.get('/edit-article', function(req, res, next) {
 });
 
 module.exports = router;
-
-
-
