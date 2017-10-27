@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 const mysql = require('mysql');
+const nodemailer = require('nodemailer');
 
 
  const connection = mysql.createConnection({
@@ -10,6 +11,17 @@ const mysql = require('mysql');
   password : 'root',
   database : 'mydb'
 });
+
+//Creation de la méthode de transport
+var smtpTransport = nodemailer.createTransport({
+  host: "smtp.mailtrap.io",
+  port: 2525,
+  auth: {
+    user: "aeec40eb1b77ba",
+    pass: "7ad4ee57c784cc"
+  }
+});
+
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -30,8 +42,8 @@ router.get('/realisations/:id(\\d+)', function(req, res, next) {
     res.render('real1', {menu_index: 2, article: results[0]});
 
    }
-   
-  });  
+
+  });
 
 });
 
@@ -47,7 +59,20 @@ router.get('/contact', function(req, res, next) {
 });
 
 router.post('/contact', function(req, res, next) {
-  //res.sendFile(__dirname+'/public/realisations.html');
+
+  smtpTransport.sendMail({
+    from: req.body.name + " <" + req.body.email + ">", // Expediteur
+    to: "alexis.ducerf@homesweethome.com", // Destinataires
+    subject: req.body.subject, // Sujet
+    text: req.body.text // plaintext body
+}, (error, response) => {
+if(error){
+console.log(error);
+    }else{
+console.log("Message sent: " + response.message);
+    }
+});
+
   res.render('contact-confirm',{menu_index: 4});
 });
 
