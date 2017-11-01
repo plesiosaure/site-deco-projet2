@@ -1,0 +1,11 @@
+form(method="POST" enctype="multipart/form-data")
+	input(type="text" name="title" placeholder="product name" value=product.title)
+	br
+	br
+	textarea(name="text" placeholder="product description")=product.text
+	br
+	br
+	input(type="file" name="product_sourceName" value=product.idarticle)
+	br
+	br
+	button(type="submit") Modifier
