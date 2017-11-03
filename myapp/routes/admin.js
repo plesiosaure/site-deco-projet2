@@ -27,18 +27,19 @@ router.get("/logout", function(req, res, next) {
 
 // GET /admin/   Afficher la liste des produits de la table 'products'
 router.get('/', function(req, res, next) {
-connection.query(`SELECT distinct (a.idarticle), a.title, a.text, c.name, m.*
+  connection.query(`SELECT a.idarticle, a.title, a.text, c.name, m.thumbnailName
 FROM article a
-JOIN article_has_category ac
+LEFT JOIN article_has_category ac
 ON a.idarticle = ac.article_idarticle
-JOIN category c
+LEFT JOIN category c
 ON ac.category_idcategory = c.idcategory
 LEFT JOIN media m
-ON a.idarticle = m.article_idarticle;`, function (error, results, fields) {
+ON a.idarticle = m.article_idarticle
+GROUP BY a.idarticle,c.name, m.thumbnailName ;`, function (error, results, fields) {
 	  if (error) throw error;
 	  //console.log(results)
 		res.render('admin-index', {
-      product:results
+      products:results
     });
 	  //console.log(results);
 	});
@@ -85,11 +86,13 @@ router.get('/edit-product/:idarticle(\\d+)', function(req, res) {
 
 });
 
-router.post('/edit-product/:idarticle(\\d+)', function(req, res, next) {
-  connection.query('update article set title = ?, text = ? where idarticle=?',[req.body.title, req.body.text, req.bod.idarticle], function(error, results, fields) {
-console.log(results);
-   if (error) throw error;
-   res.redirect('/admin');
+router.post('/edit-product/:idarticle(\\d+)', function(req, res) {
+  connection.query('update article set title = ?, text = ? where idarticle=?',[req.body.title, req.body.text, req.params.idarticle], function(error) {
+    console.log(req.body)
+   if (error);
+    console.log(error);
+   res.redirect('/admin')
+
   })
 
   // res.sendFile(__dirname+'/public/index1.html');
@@ -107,7 +110,7 @@ console.log(results);
 router.get('/delete-product/:idarticle(\\d+)', function(req, res, next) {
 	// Supprimer le produit en recupérant l'id dans la query
 console.log('delete');
-	connection.query('delete from article where idarticle=?',[req.query.idarticle],function (error, results, fields) {
+	connection.query('delete from article where idarticle=?',[req.params.idarticle],function (error, results, fields) {
 	  if (error) throw error;
 		res.redirect('/admin');
 	  //console.log(results);
