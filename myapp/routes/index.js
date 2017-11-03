@@ -26,7 +26,8 @@ var smtpTransport = nodemailer.createTransport({
 /* GET home page. */
 router.get('/', function(req, res, next) {
   // res.sendFile(__dirname+'/public/index1.html');
-  res.render('index',{menu_index: 1});
+
+  res.render('index',{menu_index:1});
 });
 
 router.get('/realisations', function(req, res, next) {
