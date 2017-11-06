@@ -1,25 +1,28 @@
-a(href='/admin/logout') se déconnecter
-a(href="/admin/create-product") Ajouter un produit
+extends layout2
 
-br 
-br 
+block content
+	a(href='/admin/logout') se déconnecter
+	a(href="/admin/create-product") Ajouter un produit
 
-table(border="1" width="100%")
-	tr
-		th #
-		th name 
-		th description
-		th image
-		th action
-	each product in products
-			tr
-				td= product.idarticle
-				td= product.title
-				td= product.text  
-				td 
-					img(src="/img/" + product.sourceName height="50")
-				td 
-					a(href="/admin/delete-product/" + product.idarticle onclick="return confirm('Etes-vous certain de vouloir supprimer cet article?');" class="btn btn-warning") Supprimer
-					br
-					a(href="/admin/edit-product/" + product.idarticle) Modifier
-					
+	br 
+	br 
+
+	table(border="1" width="100%")
+		tr
+			th #
+			th name 
+			th description
+			th image
+			th action
+		each product in products
+				tr
+					td= product.idarticle
+					td= product.title
+					td= product.text  
+					td 
+						img(src="/img/" + product.sourceName height="50")
+					td 
+						a(href="/admin/delete-product/" + product.idarticle onclick="return confirm('Etes-vous certain de vouloir supprimer cet article?');" class="btn btn-warning") Supprimer
+						br
+						a(href="/admin/edit-product/" + product.idarticle) Modifier
+						
