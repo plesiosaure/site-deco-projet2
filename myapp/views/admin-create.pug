@@ -1,0 +1,15 @@
+extends layout2
+
+block content
+	form(method="POST" enctype="multipart/form-data")
+		input(type="text" name="title" placeholder="product name")
+		br
+		br
+		textarea(name="text" placeholder="product description")
+		br
+		br
+		input(type="file" name="product_sourceName" multiple)
+		br
+		br
+		button(type="submit") Enregistrer
+
