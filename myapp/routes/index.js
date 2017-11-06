@@ -35,11 +35,22 @@ router.get('/', function(req, res, next) {
 
 router.get('/realisations', function(req, res, next) {
   //res.sendFile(__dirname+'/public/realisations.html');
-  connection.query(`select * from article where idarticle= ? ` ,[req.params.id], function (error, results, fields) {
+  connection.query(`SELECT a.idarticle, a.title, a.text, m.thumbnailName
+FROM article a
+LEFT JOIN article_has_category ac
+ON a.idarticle = ac.article_idarticle
+LEFT JOIN category c
+ON ac.category_idcategory = c.idcategory
+LEFT JOIN media m
+ON a.idarticle = m.article_idarticle
+WHERE (m.featured=1 OR m.featured IS NULL)
+AND c.idcategory=1
+GROUP BY a.idarticle, m.thumbnailName
+ ;` , function (error, results, fields) {
    if (results.length==0) {
     res.send("Erreur");
    }else{
-      res.render('real',{article: results});
+      res.render('real',{menu_index: 2, articles: results});
 
    }
 
@@ -49,11 +60,19 @@ router.get('/realisations', function(req, res, next) {
 });
 
 router.get('/realisations/:id(\\d+)', function(req, res, next) {
-  connection.query(`select * from article where idarticle= ? ` ,[req.params.id], function (error, results, fields) {
+  connection.query(`SELECT a.idarticle, a.title, a.text, m.thumbnailName
+FROM article a
+LEFT JOIN article_has_category ac
+ON a.idarticle = ac.article_idarticle
+LEFT JOIN media m
+ON a.idarticle = m.article_idarticle
+WHERE m.featured=1 OR m.featured IS NULL
+AND idarticle= ? 
+GROUP BY a.idarticle, m.thumbnailName` ,[req.params.id], function (error, results, fields) {
    if (results.length==0) {
     res.send("Erreur");
    }else{
-    res.render('real1', {menu_index: 2, article: results[0]});
+    res.render('real1', {menu_index: 2, articles: results});
 
    }
 
