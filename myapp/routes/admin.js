@@ -25,6 +25,7 @@ router.get("/logout", function(req, res, next) {
 
 
 
+
 // GET /admin/   Afficher la liste des produits de la table 'products'
 router.get('/', function(req, res, next) {
   connection.query(`SELECT a.idarticle, a.title, a.text, c.name, m.thumbnailName
@@ -38,6 +39,7 @@ ON a.idarticle = m.article_idarticle
 WHERE m.featured=1 OR m.featured IS NULL
 GROUP BY a.idarticle,c.name, m.thumbnailName
  ;`, function (error, results, fields) {
+
 	  if (error) throw error;
 	  //console.log(results)
 		res.render('admin-index', {
@@ -55,6 +57,7 @@ GROUP BY a.idarticle,c.name, m.thumbnailName
 router.get('/create-product', function(req, res, next) {
 	res.render('admin-create');
 });
+
 
 // POST /admin/create-product
 router.post('/create-product', upload.array('product_sourceName', 6), function(req, res, next) {
@@ -93,6 +96,7 @@ router.get('/edit-product/:idarticle(\\d+)', function(req, res) {
         product:results[0]
       });
   })
+
 
 
 });

@@ -608,6 +608,23 @@ p {
   text-align: center;
 }
 
+.imgdetail {
+    max-width: 100%;
+    height: auto;
+    text-align: center;
+    margin-bottom: 20px;
+
+}
+
+.detail-description {
+    font-size: 1.25rem;
+    color: #444;
+    font-weight: 100;
+    width: 100%;
+    display: block;
+    margin-bottom: 50px;
+}
+
 
 
 
