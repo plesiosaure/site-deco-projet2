@@ -4,7 +4,7 @@ const mysql = require('mysql');
 const multer = require('multer');
 const fs = require('fs');
 
-const upload = multer({ dest: 'tmp/'});
+const upload = multer({dest: 'tmp/'});
 const nodemailer = require('nodemailer');
 
 var connection = mysql.createConnection({
@@ -35,7 +35,9 @@ LEFT JOIN category c
 ON ac.category_idcategory = c.idcategory
 LEFT JOIN media m
 ON a.idarticle = m.article_idarticle
-GROUP BY a.idarticle,c.name, m.thumbnailName ;`, function (error, results, fields) {
+WHERE m.featured=1 OR m.featured IS NULL
+GROUP BY a.idarticle,c.name, m.thumbnailName
+ ;`, function (error, results, fields) {
 	  if (error) throw error;
 	  //console.log(results)
 		res.render('admin-index', {
@@ -55,21 +57,30 @@ router.get('/create-product', function(req, res, next) {
 });
 
 // POST /admin/create-product
-router.post('/create-product', upload.single('product_sourceName'), function(req, res, next) {
-	// Ajouter un produit dans la table 'products'
-	//console.log(req.file);
-	if (req.file.size < (3*1024*1024) && (req.file.mimetype == 'image/png' || req.file.mimetype == 'image/jpg' || req.file.mimetype == 'image/jpeg') ) {
-		fs.rename(req.file.path,'public/img/'+req.file.originalname);
+router.post('/create-product', upload.array('product_sourceName', 6), function(req, res, next) {
+  // Ajouter un produit dans la table 'products'
+  console.log(req.files);
 
-	} else {
-		res.send('Vous avez fait une erreur dans le téléchargement')
-	}
-	connection.query('insert into article values(null, 1, ?, ?, NOW());',[req.body.title,req.body.text], function (error, results, fields) {
-	  if (error) throw error;
-		res.redirect('/admin');
-	  //console.log(results);
-	});
-	//console.log(req.body);
+
+  connection.query('insert into article values(null, 1, ?, ?, NOW());',[req.body.title,req.body.text],
+  function (error, results, fields) {
+    if (error) throw error;
+    req.files.forEach(function(f, index){
+      if (f.size < (3*1024*1024) && (f.mimetype == 'image/png' || f.mimetype == 'image/jpg' || f.mimetype == 'image/jpeg'))
+      {
+        fs.rename(f.path,'public/img/'+f.originalname);
+        connection.query("insert into media values(null, 'img', '', 'legend', ?, ?, ?, ?)",
+        [f.originalname, f.originalname, results.insertId, index==0], function (error, results, fields) {
+          if (error) throw error;
+        });
+      } else {
+        res.send('Vous avez fait une erreur dans le téléchargement du fichier' + f.originalname)
+      }
+    });
+    res.redirect('/admin');
+    //console.log(results);
+  });
+  //console.log(req.body);
 
 });
 

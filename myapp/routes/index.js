@@ -4,6 +4,9 @@ var router = express.Router();
 const mysql = require('mysql');
 const nodemailer = require('nodemailer');
 
+var app = express();
+
+
 
  const connection = mysql.createConnection({
   host     : 'localhost',
