@@ -1,19 +1,21 @@
 extends layout2
 
 block content
-	a(href='/admin/logout') se déconnecter
-	a(href="/admin/create-product") Ajouter un produit
+	a.btn.btn-warning(role='button' href='/admin/logout') se déconnecter
+	
+	h1 Administration des articles
+	a.btn.btn-primary(role='button' href="/admin/create-product") Ajouter un article
 
-	br 
-	br 
-
-	table(border="1" width="100%")
-		tr
-			th #
-			th name 
-			th description
-			th image
-			th(colspan="2") action
+	h2 Réalisations
+	table.text-center(border="1" width="100%" cellpadding="5")
+		thead
+			tr
+				th.text-center #
+				th.text-center name 
+				th.text-center description
+				th.text-center image
+				th.text-center(colspan="2") action
+		tbody
 		each product in products
 				tr
 					td= product.idarticle
@@ -22,7 +24,29 @@ block content
 					td 
 						img(src="/img/" + product.thumbnailName height="50")
 					td
-						button.btn.btn-primary(type='button' href="/admin/edit-product/" + product.idarticle) Modifier
+						a.btn.btn-primary(role='button' href="/admin/edit-product/" + product.idarticle) Modifier
 					td 
-						button.btn.btn-warning(type='button' href="/admin/delete-product/" + product.idarticle onclick="return confirm('Etes-vous certain de vouloir supprimer cet article?');" ) Supprimer
+						a.btn.btn-warning(role='button' href="/admin/delete-product/" + product.idarticle onclick="return confirm('Etes-vous certain de vouloir supprimer cet article?');" ) Supprimer
+						
+	h2 Articles de presse
+	table.text-center(border="1" width="100%" cellpadding="5")
+		thead
+			tr
+				th.text-center #
+				th.text-center name 
+				th.text-center description
+				th.text-center image
+				th.text-center(colspan="2") action
+		tbody
+		each product in products
+				tr
+					td= product.idarticle
+					td= product.title
+					td= product.text  
+					td 
+						img(src="/img/" + product.thumbnailName height="50")
+					td
+						a.btn.btn-primary(role='button' href="/admin/edit-product/" + product.idarticle) Modifier
+					td 
+						a.btn.btn-warning(role='button' href="/admin/delete-product/" + product.idarticle onclick="return confirm('Etes-vous certain de vouloir supprimer cet article?');" ) Supprimer
 						
