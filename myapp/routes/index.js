@@ -4,6 +4,9 @@ var router = express.Router();
 const mysql = require('mysql');
 const nodemailer = require('nodemailer');
 
+var app = express();
+
+
 
  const connection = mysql.createConnection({
   host     : 'localhost',
@@ -26,7 +29,8 @@ var smtpTransport = nodemailer.createTransport({
 /* GET home page. */
 router.get('/', function(req, res, next) {
   // res.sendFile(__dirname+'/public/index1.html');
-  res.render('index',{menu_index: 1});
+
+  res.render('index',{menu_index:1});
 });
 
 router.get('/realisations', function(req, res, next) {
