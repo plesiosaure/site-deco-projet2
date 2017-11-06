@@ -13,16 +13,16 @@ block content
 			th name 
 			th description
 			th image
-			th action
+			th(colspan="2") action
 		each product in products
 				tr
 					td= product.idarticle
 					td= product.title
 					td= product.text  
 					td 
-						img(src="/img/" + product.sourceName height="50")
+						img(src="/img/" + product.thumbnailName height="50")
+					td
+						button.btn.btn-primary(type='button' href="/admin/edit-product/" + product.idarticle) Modifier
 					td 
-						a(href="/admin/delete-product/" + product.idarticle onclick="return confirm('Etes-vous certain de vouloir supprimer cet article?');" class="btn btn-warning") Supprimer
-						br
-						a(href="/admin/edit-product/" + product.idarticle) Modifier
+						button.btn.btn-warning(type='button' href="/admin/delete-product/" + product.idarticle onclick="return confirm('Etes-vous certain de vouloir supprimer cet article?');" ) Supprimer
 						
