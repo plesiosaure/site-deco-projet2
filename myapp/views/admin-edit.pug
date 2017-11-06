@@ -1,14 +1,17 @@
 extends layout2
 
 block content
-	form(method="POST")
-		input(type="text" name="title" placeholder="product name" value=product.title)
-		br
-		br
-		textarea(name="text" placeholder="product description")=product.text
-		br
-		br
-		input(type="file" name="product_sourceName" value=product.idarticle)
-		br
-		br
-		button(type="submit") Modifier
+	h1 Editer un article
+	form(method="POST" enctype="multipart/form-data")
+		.form-group
+			label(for='title') Titre de l'article
+			input#title.form-control(type='text', value=product.title name='title')
+		.form-group
+			label(for='text') Texte de l'article
+			textarea#text.form-control( name='text')=product.text
+		.form-group
+			label(for="images") Ajouter une ou plusieurs images
+			input#images(type="file" name="product_sourceName" multiple)
+		inputs(type="hidden" name="category" value=product.idcategory)
+
+		button.btn.btn-primary(type='submit') Enregistrer
