@@ -31,7 +31,17 @@ router.get('/', function(req, res, next) {
 
 router.get('/realisations', function(req, res, next) {
   //res.sendFile(__dirname+'/public/realisations.html');
-  res.render('real',{menu_index: 2});
+  connection.query(`select * from article where idarticle= ? ` ,[req.params.id], function (error, results, fields) {
+   if (results.length==0) {
+    res.send("Erreur");
+   }else{
+      res.render('real',{article: results});
+
+   }
+
+  });
+
+
 });
 
 router.get('/realisations/:id(\\d+)', function(req, res, next) {
@@ -82,13 +92,6 @@ router.get('/login', function(req, res, next) {
   res.render('login');
 });
 
-router.get('/produit-id:id(\\d+)', function(req, res, next) {
-  //res.sendFile(__dirname+'/public/realisations.html');
-  connection.query('select * from products',function(error, results){
-
-  res.render('produit');{ informations: products}
-});
-});
 
 
 
