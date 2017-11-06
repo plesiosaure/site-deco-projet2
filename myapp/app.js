@@ -20,8 +20,10 @@ app.use(session({
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
+var favicon = require('serve-favicon');
+var path = require('path');
 
-// uncomment after placing your favicon in /public
+app.use(favicon(__dirname + '/public/favicon.ico')) // Active la favicon indiquée
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
@@ -29,6 +31,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static('public'));
 
+console.log('favicon')
 const Session = require('express-session');
 const FileStore = require('session-file-store')(Session);
 
