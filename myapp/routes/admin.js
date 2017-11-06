@@ -65,9 +65,12 @@ router.post('/create-product', upload.array('product_sourceName', 6), function(r
   console.log(req.files);
 
 
-  connection.query('insert into article values(null, 1, ?, ?, NOW());',[req.body.title,req.body.text],
+  connection.query('insert into article values(null, ?, ?, NOW());',[req.body.title,req.body.text],
   function (error, results, fields) {
     if (error) throw error;
+    connection.query(`INSERT INTO article_has_category values(?, 1)`, [results.insertId], function (error, results, fields) {
+          if (error) throw error;
+        });
     req.files.forEach(function(f, index){
       if (f.size < (3*1024*1024) && (f.mimetype == 'image/png' || f.mimetype == 'image/jpg' || f.mimetype == 'image/jpeg'))
       {
