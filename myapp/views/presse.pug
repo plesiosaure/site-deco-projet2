@@ -6,87 +6,16 @@ block content
         h2.realtitle Revue de presse
         |  
         .row
+        each article in articles
           .col-md-4.col-sm-6.portfolio-item
             a.portfolio-link(href='#portfolioModal1', data-toggle='modal')
               .portfolio-hover
                 .portfolio-hover-content
                   
               |                         
-              img.img-responsive(src='http://placehold.it/300x225', alt='')
+              img.img-responsive(src='/img/' + article.thumbnailName, alt='')
             |                     
             .portfolio-caption
-              h4 Round Icons
+              h4= article.title
               |                         
-              p.text-muted
-                | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus felis diam, vulputate in risus eu, porttitor condimentum purus. Phasellus ullamcorper, odio id feugiat bibendum.
-          |                 
-          .col-md-4.col-sm-6.portfolio-item
-            a.portfolio-link(href='#portfolioModal2', data-toggle='modal')
-              .portfolio-hover
-                .portfolio-hover-content
-                  
-              |                         
-              img.img-responsive(src='http://placehold.it/300x225', alt='')
-            |                     
-            .portfolio-caption
-              h4 Startup Framework
-              |                         
-              p.text-muted
-                | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus felis diam, vulputate in risus eu, porttitor condimentum purus. Phasellus ullamcorper, odio id feugiat bibendum.
-          |                 
-          .col-md-4.col-sm-6.portfolio-item
-            a.portfolio-link(href='#portfolioModal3', data-toggle='modal')
-              .portfolio-hover
-                .portfolio-hover-content
-                  
-              |                         
-              img.img-responsive(src='http://placehold.it/300x225', alt='')
-            |                     
-            .portfolio-caption
-              h4 Treehouse
-              |                         
-              p.text-muted
-                | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus felis diam, vulputate in risus eu, porttitor condimentum purus. Phasellus ullamcorper, odio id feugiat bibendum.
-          |                 
-          .col-md-4.col-sm-6.portfolio-item
-            a.portfolio-link(href='#portfolioModal4', data-toggle='modal')
-              .portfolio-hover
-                .portfolio-hover-content
-                  
-              |                         
-              img.img-responsive(src='http://placehold.it/300x225', alt='')
-            |                     
-            .portfolio-caption
-              h4 Golden
-              |                         
-              p.text-muted
-                | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus felis diam, vulputate in risus eu, porttitor condimentum purus. Phasellus ullamcorper, odio id feugiat bibendum.
-          |                 
-          .col-md-4.col-sm-6.portfolio-item
-            a.portfolio-link(href='#portfolioModal5', data-toggle='modal')
-              .portfolio-hover
-                .portfolio-hover-content
-                  
-              |                         
-              img.img-responsive(src='http://placehold.it/300x225', alt='')
-            |                     
-            .portfolio-caption
-              h4 Escape
-              |                         
-              p.text-muted
-                | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus felis diam, vulputate in risus eu, porttitor condimentum purus. Phasellus ullamcorper, odio id feugiat bibendum.
-          |                 
-          .col-md-4.col-sm-6.portfolio-item
-            a.portfolio-link(href='#portfolioModal6', data-toggle='modal')
-              .portfolio-hover
-                .portfolio-hover-content
-                  
-              |                         
-              img.img-responsive(src='http://placehold.it/300x225', alt='')
-            |                     
-            .portfolio-caption
-              h4 Dreams
-              |                         
-              p.text-muted
-                | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus felis diam, vulputate in risus eu, porttitor condimentum purus. Phasellus ullamcorper, odio id feugiat bibendum.
-    |         
+              p.text-muted= article.text

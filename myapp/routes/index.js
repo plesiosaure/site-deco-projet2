@@ -43,8 +43,8 @@ LEFT JOIN category c
 ON ac.category_idcategory = c.idcategory
 LEFT JOIN media m
 ON a.idarticle = m.article_idarticle
-WHERE (m.featured=1 OR m.featured IS NULL)
-AND c.idcategory=1
+WHERE (m.featured = 1 OR m.featured IS NULL)
+AND c.idcategory = 1
 GROUP BY a.idarticle, m.thumbnailName` , function (error, results, fields) {
       if (results.length == 0) {
         res.send("Erreur");
@@ -65,8 +65,8 @@ LEFT JOIN article_has_category ac
 ON a.idarticle = ac.article_idarticle
 LEFT JOIN media m
 ON a.idarticle = m.article_idarticle
-WHERE m.featured=1 OR m.featured IS NULL
-AND idarticle= ? 
+WHERE m.featured = 1 OR m.featured IS NULL
+AND idarticle = ? 
 GROUP BY a.idarticle, m.thumbnailName` , [req.params.id], function (error, results, fields) {
       if (results.length == 0) {
         res.send("Erreur");
@@ -90,8 +90,8 @@ router.get('/presse', function (req, res, next) {
   ON ac.category_idcategory = c.idcategory
   LEFT JOIN media m
   ON a.idarticle = m.article_idarticle
-  WHERE (m.featured=1 OR m.featured IS NULL)
-  AND c.idcategory=2
+  WHERE (m.featured = 1 OR m.featured IS NULL)
+  AND c.idcategory = 2
   GROUP BY a.idarticle, m.thumbnailName` , function (error, results, fields) {
         if (results.length == 0) {
           res.send("Erreur");
