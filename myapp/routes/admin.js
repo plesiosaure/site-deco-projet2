@@ -93,7 +93,7 @@ router.post('/create-article', upload.array('article_sourceName', 6), function(r
     connection.query('insert into article values(null, ?, ?, NOW());',[req.body.title,req.body.text],
     function (error, results, fields) {
       if (error) throw error;
-      connection.query(`INSERT INTO article_has_category values(?, 1)`, [results.insertId], function (error, results, fields) {
+      connection.query(`INSERT INTO article_has_category values(?, ?)`, [results.insertId, req.body.category], function (error, results, fields) {
             if (error) throw error;
           });
       req.files.forEach(function(f, index){
@@ -111,7 +111,7 @@ router.post('/create-article', upload.array('article_sourceName', 6), function(r
       res.redirect('/admin');
       //console.log(results);
     });
-    //console.log(req.body);
+    console.log(req.body);
   }
   else {
     res.render('login');
