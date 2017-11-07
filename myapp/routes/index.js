@@ -179,7 +179,7 @@ router.post('/login', function (req, res, next) {
 
   connection.query(`select * from user where pseudo= ? and password= ?`, [login, password], function (error, results, fields) {
     if (results.length == 0) {
-      res.send("Erreur");
+      res.render('login' ,{message:"Erreur d'identification"});
     } else {
       req.session.connect = true;
       res.redirect("/admin");
