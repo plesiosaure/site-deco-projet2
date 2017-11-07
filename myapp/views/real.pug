@@ -13,7 +13,7 @@ block content
       .row
       each article in articles
         .col-md-4.col-sm-6.portfolio-item
-          a.portfolio-link(href='#portfolioModal1', data-toggle='modal')
+          a.portfolio-link(href="/realisations/" + article.idarticle, data-toggle='modal')
             .portfolio-hover
               .portfolio-hover-content
                 i.fa.fa-plus.fa-3x

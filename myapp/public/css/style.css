@@ -606,6 +606,7 @@ p {
 
 .real1title {
   text-align: center;
+  padding-top: 50px;
 }
 
 .imgdetail {
@@ -616,19 +617,13 @@ p {
 
 }
 
-.detail-description {
+p.detail-description {
     font-size: 1.25rem;
     color: #444;
     font-weight: 100;
     width: 100%;
     display: block;
-    margin-bottom: 50px;
 }
-
-
-
-
-
 
 
 

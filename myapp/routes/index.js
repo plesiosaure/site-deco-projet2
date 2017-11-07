@@ -29,8 +29,28 @@ var smtpTransport = nodemailer.createTransport({
 /* GET home page. */
 router.get('/', function (req, res, next) {
   // res.sendFile(__dirname+'/public/index1.html');
+  connection.query(`SELECT a.idarticle, a.title, a.text, m.thumbnailName
+FROM article a
+LEFT JOIN article_has_category ac
+ON a.idarticle = ac.article_idarticle
+LEFT JOIN category c
+ON ac.category_idcategory = c.idcategory
+LEFT JOIN media m
+ON a.idarticle = m.article_idarticle
+WHERE m.featured = 1
+AND c.idcategory = 1
+GROUP BY a.idarticle, m.thumbnailName
+LIMIT 6` , function (error, results, fields) {
+      if (results.length == 0) {
+        res.send("Erreur");
+      } else {
 
-  res.render('index', { menu_index: 1 });
+  res.render('index', { menu_index: 1, articles: results  });
+}
+
+    });
+
+
 });
 
 router.get('/realisations', function (req, res, next) {
@@ -43,7 +63,7 @@ LEFT JOIN category c
 ON ac.category_idcategory = c.idcategory
 LEFT JOIN media m
 ON a.idarticle = m.article_idarticle
-WHERE (m.featured = 1 OR m.featured IS NULL)
+WHERE m.featured = 1
 AND c.idcategory = 1
 GROUP BY a.idarticle, m.thumbnailName` , function (error, results, fields) {
       if (results.length == 0) {
@@ -65,7 +85,7 @@ LEFT JOIN article_has_category ac
 ON a.idarticle = ac.article_idarticle
 LEFT JOIN media m
 ON a.idarticle = m.article_idarticle
-WHERE m.featured = 1 OR m.featured IS NULL
+WHERE m.featured = 1 
 AND idarticle = ? 
 GROUP BY a.idarticle, m.thumbnailName` , [req.params.id], function (error, results, fields) {
       if (results.length == 0) {
@@ -90,7 +110,7 @@ router.get('/presse', function (req, res, next) {
   ON ac.category_idcategory = c.idcategory
   LEFT JOIN media m
   ON a.idarticle = m.article_idarticle
-  WHERE (m.featured = 1 OR m.featured IS NULL)
+  WHERE m.featured = 1 
   AND c.idcategory = 2
   GROUP BY a.idarticle, m.thumbnailName` , function (error, results, fields) {
         if (results.length == 0) {

@@ -9,9 +9,10 @@ block content
               h2= articles[0].title
             .detail-description
             p= articles[0].text
-    each image in articles
-      .imgdetail
-        img(src='/img/' + image.thumbnailName, width='1340')
+      each image in articles
+        .row
+          .imgdetail
+            img.img-responsive(src='/img/' + image.thumbnailName, width='1340')
 
 
     
