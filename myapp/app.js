@@ -14,7 +14,10 @@ var app = express();
 app.use(session({
   secret: 'keyboard cat',
   resave: false,
-  saveUninitialized: true
+  saveUninitialized: true,
+  cookie: {
+  maxAge: 24 * 60 * 60 * 1000
+  }
 }))
 
 // view engine setup
