@@ -1,14 +1,52 @@
 extends layout2
 
 block content
-	form(method="POST")
-		input(type="text" name="title" placeholder="product name" value=product.title)
-		br
-		br
-		textarea(name="text" placeholder="product description")=product.text
-		br
-		br
-		input(type="file" name="product_sourceName" value=product.idarticle)
-		br
-		br
-		button(type="submit") Modifier
+	h1 Editer un article
+	form(method="POST" enctype="multipart/form-data")
+		.form-group
+			label(for='title') Titre de l'article
+			input#title.form-control(type='text', value=article.title name='title')
+		.form-group
+			label(for='text') Texte de l'article
+			textarea#text.form-control( name='text')=article.text
+		.form-group
+			table.table.text-center.table-striped
+				thead
+					tr
+						th.text-center Image
+						th.text-center(colspan="2") Action
+						
+				tbody
+				each image in media
+					tr
+						
+						td 
+							img(src="/img/" + image.thumbnailName height="50")
+						td
+							.form-check
+								label.form-check-label(for="featured"+image.idmedia) 
+									input.form-check-input(id="featured"+image.idmedia type="radio" name="featured" value=image.idmedia checked=image.featured==1)
+									|	Sélectionner comme image principale
+								br
+								br
+							.form-check
+								label.form-check-label(for="suppr"+image.idmedia) 
+									input.form-check-input(id="suppr"+image.idmedia type="checkbox" name="suppr[]" value=image.idmedia)
+									|	Sélectionner pour supprimer l'image
+			
+						
+			.form-group
+				label(for="images") Ajouter une ou plusieurs images
+			
+				input(id="images" type="file" name="article_sourceName" multiple)
+
+
+			
+			.row 
+				.col-sm-1
+					button.btn.btn-primary(type='submit') Enregistrer
+				.col-sm-1
+					a.btn.btn-danger(role='button' href="/admin" onclick="return confirm('Etes-vous certain de vouloir annuler vos modifications ?');" ) Annuler
+
+
+		

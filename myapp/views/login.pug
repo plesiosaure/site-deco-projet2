@@ -1,5 +1,8 @@
 extends layout2
 
+block vars
+	- var title='Identification'
+
 block content
 	.row
 		.col-sm-4.col-sm-offset-4
@@ -15,4 +18,6 @@ block content
 				.form-group
 					label(for='password') Mot de passe
 					input#password.form-control(type='password', placeholder='Votre mot de passe', name='password')
+				if message
+					p.alert.alert-danger=message
 				button.btn.btn-primary(type='submit') Se connecter

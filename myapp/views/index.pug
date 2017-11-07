@@ -1,4 +1,8 @@
 extends layout
+
+block vars
+  - var title='Home Sweet Home décoration d\'intérieur'
+
 block content
     
   header.homehead.vertical-align
@@ -19,28 +23,10 @@ block content
     .sous-titre
       h2 DERNIÈRES RÉALISATIONS
     .case-study-gallery
-      .case-study.study1
-        .case-study__overlay
-          h4.case-study__title Appartement 50m2
-          a.case-study__link(href='#') Voir plus
-      .case-study.study2
-        .case-study__overlay
-          h4.case-study__title Appartement 50m2
-          a.case-study__link(href='#') Voir plus
-      .case-study.study3
-        .case-study__overlay
-          h4.case-study__title Appartement 50m2
-          a.case-study__link(href='#') Voir plus
-      .case-study.study4
-        .case-study__overlay
-          h4.case-study__title Appartement 50m2
-          a.case-study__link(href='#') Voir plus
-      .case-study.study5
-        .case-study__overlay
-          h4.case-study__title Appartement 50m2
-          a.case-study__link(href='#') Voir plus
-      .case-study.study6
-        .case-study__overlay
-          h4.case-study__title Appartement 50m2
-          a.case-study__link(href='#') Voir plus
+      each article in articles 
+        .case-study(style= 'background-image: url(/img/' + article.thumbnailName + ')')
+          .case-study__overlay
+            h4.case-study__title= article.title
+            a.case-study__link(href="/realisations/" + article.idarticle) Voir plus
+      
   

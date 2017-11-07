@@ -1,4 +1,8 @@
 extends layout
+
+block vars
+  - var title='Home Sweet Home décoration d\'intérieur - '+ articles[0].title
+
 block content
 
     .container
@@ -6,17 +10,13 @@ block content
         .col-md-12
           .real1title
             .dummy-logo
-              h2= article.title
+              h2= articles[0].title
             .detail-description
-            p= article.text
-    .imgdetail
-      img(src='/img/teste.jpg', width='1340', height='894')
-    .imgdetail
-      img(src='/img/teste.jpg', width='1340', height='894')
-    .imgdetail
-      img(src='/img/teste.jpg', width='1340', height='894')
-    .imgdetail
-      img(src='/img/teste.jpg', width='1340', height='894')
+            p= articles[0].text
+      each image in articles
+        .row
+          .imgdetail
+            img.img-responsive(src='/img/' + image.thumbnailName, width='1340')
 
 
     

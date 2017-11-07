@@ -2,7 +2,8 @@ doctype html
 html(lang='fr')
   head
     meta(charset='utf-8')
-    title Home Sweet Home décoration d'intérieur
+    block vars
+    title= title
     meta(http-equiv='X-UA-Compatible', content='IE=edge')
     meta(name='viewport', content='width=device-width, initial-scale=1')
     link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css', integrity='sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u', crossorigin='anonymous')
@@ -45,7 +46,7 @@ html(lang='fr')
                   p orem ipsum dolor sit amet, consectetur adipiscing elit.
                 p
                   | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus felis diam, vulputate in risus eu, porttitor condimentum purus. Phasellus ullamcorper, odio id feugiat bibendum.
-                a.btn.btn-footer(href='') Read More
+                
             .col-md-3.col-sm-6
             .clearfix.visible-sm
             .col-md-3.col-sm-6

@@ -1,15 +1,29 @@
 extends layout2
 
+block vars
+	- var title='Admin Home Sweet Home - Créer un article'
+
 block content
+	h1 Nouvel article
 	form(method="POST" enctype="multipart/form-data")
-		input(type="text" name="title" placeholder="product name")
+		.form-group
+			label(for='title') Titre de l'article
+			input#title.form-control(type='text', placeholder='Appartement 50 m2' name='title')
+		.form-group
+			label(for='text') Texte de l'article
+			textarea#text.form-control(placeholder='Description' name='text')
+		.form-group
+			label(for="images") Ajouter une ou plusieurs images
+			input#images(type="file" name="article_sourceName" multiple)
+		select(name= "category")
+			optgroup(label="Category" text="bold")
+			option(value= "1") Réalisations
+			option(value= "2") Articles de presse
 		br
 		br
-		textarea(name="text" placeholder="product description")
-		br
-		br
-		input(type="file" name="product_sourceName" multiple)
-		br
-		br
-		button(type="submit") Enregistrer
+		.row 
+			.col-sm-1
+				button.btn.btn-primary(type='submit') Enregistrer
+			.col-sm-1
+				a.btn.btn-danger(role='button' href="/admin" onclick="return confirm('Etes-vous certain de vouloir annuler vos modifications ?');" ) Annuler
 
