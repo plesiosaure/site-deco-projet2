@@ -53,7 +53,7 @@ router.get('/', function(req, res, next) {
       WHERE (m.featured=1 OR m.featured IS NULL)
       AND c.idcategory = 2
       GROUP BY a.idarticle,c.name, m.thumbnailName`, function (error, results2, fields) {
-      
+
           if (error) throw error;
           console.log(results)
           res.render('admin-index', {
@@ -62,13 +62,13 @@ router.get('/', function(req, res, next) {
           });
           //console.log(results);
         });
-      
+
       //console.log(results);
     });
   }
   else {
     res.render('login');
-  } 
+  }
 });
 
 
@@ -117,7 +117,7 @@ router.post('/create-article', upload.array('article_sourceName', 6), function(r
     res.render('login');
   }
 
-  
+
 
 });
 
@@ -127,9 +127,13 @@ router.get('/edit-article/:idarticle(\\d+)', function(req, res) {
   if (req.session.connect) {
     connection.query('select * from article where idarticle=?', [req.params.idarticle], function(error, results) {
       if (error) throw error;
+      connection.query('select * from media where article_idarticle=?', [req.params.idarticle], function(error, results2) {
         res.render('admin-edit', {
-          article:results[0]
+          article:results[0],
+          media:results2
         });
+      });
+console.log(results);
     });
   }
   else {
@@ -140,14 +144,40 @@ router.get('/edit-article/:idarticle(\\d+)', function(req, res) {
 
 });
 
-router.post('/edit-article/:idarticle(\\d+)', function(req, res) {
+router.post('/edit-article/:idarticle(\\d+)', upload.array('article_sourceName', 6), function(req, res) {
   if (req.session.connect) {
     connection.query('update article set title = ?, text = ? where idarticle=?',[req.body.title, req.body.text, req.params.idarticle], function(error) {
       console.log(req.body)
-     if (error);
+     if (error) throw error;
+     connection.query('delete from media where idmedia in(?)', [req.body.suppr], function(error){
+       console.log(this.sql);
+       if (error) throw error;
+     });
+     connection.query('update media set featured = (idmedia=?) where article_idarticle=?', [req.body.featured, req.params.idarticle], function(error){
+       console.log(this.sql);
+       if (error) throw error;
+     });
+
+     connection.query('select count(*) AS nbImage from media where article_idarticle=?', [req.params.idarticle], function(error, results) {
+       console.log(results);
+       let nbImage = results[0].nbImage;
+       req.files.forEach(function(f, index){
+         if (f.size < (3*1024*1024) && (f.mimetype == 'image/png' || f.mimetype == 'image/jpg' || f.mimetype == 'image/jpeg'))
+         {
+           fs.rename(f.path,'public/img/'+f.originalname);
+           connection.query("insert into media values(null, 'img', '', 'legend', ?, ?, ?, ?)",
+           [f.originalname, f.originalname, req.params.idarticle, index==0 && nbImage==0], function (error, results, fields) {
+             if (error) throw error;
+           });
+         } else {
+           res.send('Vous avez fait une erreur dans le téléchargement du fichier' + f.originalname)
+         }
+       });
+     });
+
       console.log(error);
      res.redirect('/admin')
-  
+
     });
   }
   else {
@@ -178,7 +208,7 @@ router.get('/delete-article/:idarticle(\\d+)', function(req, res, next) {
     else {
       res.render('login');
     }
-  
+
 });
 
 

@@ -10,8 +10,14 @@ block content
 			label(for='text') Texte de l'article
 			textarea#text.form-control( name='text')=article.text
 		.form-group
+			each image in media
+				img(src='/img/' + image.thumbnailName height=50)
+				label(for="featured"+image.idmedia) Sélectionner comme image principale
+				input(id="featured"+image.idmedia type="radio" name="featured" value=image.idmedia checked=image.featured==1)
+				label(for="suppr"+image.idmedia) Sélectionner pour supprimer l'image
+				input(id="suppr"+image.idmedia type="checkbox" name="suppr[]" value=image.idmedia)
 			label(for="images") Ajouter une ou plusieurs images
 			input#images(type="file" name="article_sourceName" multiple)
-		input(type="hidden" name="category" value=article.idcategory)
+
 
 		button.btn.btn-primary(type='submit') Enregistrer
