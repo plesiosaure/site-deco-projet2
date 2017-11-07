@@ -12,6 +12,11 @@ block content
 		.form-group
 			label(for="images") Ajouter une ou plusieurs images
 			input#images(type="file" name="article_sourceName" multiple)
-
+		select(name= "category")
+			optgroup(label="Category" text="bold")
+			option(value= "1") Réalisations
+			option(value= "2") Articles de presse
+		br
+		br
 		button.btn.btn-primary(type='submit') Enregistrer
 
