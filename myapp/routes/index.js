@@ -110,11 +110,6 @@ console.log("Message sent: " + response.message);
   res.render('contact-confirm',{menu_index: 4});
 });
 
-router.get('/login', function(req, res, next) {
-  //res.sendFile(__dirname+'/public/realisations.html');
-  res.render('login');
-});
-
 
 
 
@@ -129,10 +124,13 @@ router.get('/login', function(req, res, next) {
   // res.send(req.session.connect);
   // Si la personne est connectée on affiche la page
   // Si la personne n'est pas connectée on le redirige sur la page de connexion
-  res.render('login')
   if(req.session.connect) {
-    res.redirect('/admin-index');
+    res.redirect('/admin');
   }
+  else { 
+    res.render('login');
+  }
+  
 });
 
 router.post('/login', function(req, res, next) {
