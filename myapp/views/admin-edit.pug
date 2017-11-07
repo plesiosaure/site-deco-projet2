@@ -5,13 +5,13 @@ block content
 	form(method="POST" enctype="multipart/form-data")
 		.form-group
 			label(for='title') Titre de l'article
-			input#title.form-control(type='text', value=product.title name='title')
+			input#title.form-control(type='text', value=article.title name='title')
 		.form-group
 			label(for='text') Texte de l'article
-			textarea#text.form-control( name='text')=product.text
+			textarea#text.form-control( name='text')=article.text
 		.form-group
 			label(for="images") Ajouter une ou plusieurs images
-			input#images(type="file" name="product_sourceName" multiple)
-		inputs(type="hidden" name="category" value=product.idcategory)
+			input#images(type="file" name="article_sourceName" multiple)
+		input(type="hidden" name="category" value=article.idcategory)
 
 		button.btn.btn-primary(type='submit') Enregistrer

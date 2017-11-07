@@ -138,11 +138,8 @@ router.get('/login', function(req, res, next) {
 router.post('/login', function(req, res, next) {
   // Ici on gère les informations de l'utilisateur
 
-  //res.send(req.body.username);
-  //res.send(req.body['username']);
-
   // Tester si l'utilisateur existe en BDD  -> Comparer le nom (login) / le password
-  let login= req.body.username;
+  let login= req.body.login;
   let password = req.body.password ;
 
   connection.query(`select * from user where pseudo= ? and password= ?` ,[login, password], function (error, results, fields) {

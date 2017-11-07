@@ -4,7 +4,7 @@ block content
 	a.btn.btn-warning(role='button' href='/admin/logout') se déconnecter
 	
 	h1 Administration des articles
-	a.btn.btn-primary(role='button' href="/admin/create-product") Ajouter un article
+	a.btn.btn-primary(role='button' href="/admin/create-article") Ajouter un article
 
 	h2 Réalisations
 	table.text-center(border="1" width="100%" cellpadding="5")
@@ -16,17 +16,17 @@ block content
 				th.text-center image
 				th.text-center(colspan="2") action
 		tbody
-		each product in products
+		each article in articles
 				tr
-					td= product.idarticle
-					td= product.title
-					td= product.text  
+					td= article.idarticle
+					td= article.title
+					td= article.text  
 					td 
-						img(src="/img/" + product.thumbnailName height="50")
+						img(src="/img/" + article.thumbnailName height="50")
 					td
-						a.btn.btn-primary(role='button' href="/admin/edit-product/" + product.idarticle) Modifier
+						a.btn.btn-primary(role='button' href="/admin/edit-article/" + article.idarticle) Modifier
 					td 
-						a.btn.btn-warning(role='button' href="/admin/delete-product/" + product.idarticle onclick="return confirm('Etes-vous certain de vouloir supprimer cet article?');" ) Supprimer
+						a.btn.btn-warning(role='button' href="/admin/delete-article/" + article.idarticle onclick="return confirm('Etes-vous certain de vouloir supprimer cet article?');" ) Supprimer
 						
 	h2 Articles de presse
 	table.text-center(border="1" width="100%" cellpadding="5")
@@ -38,15 +38,15 @@ block content
 				th.text-center image
 				th.text-center(colspan="2") action
 		tbody
-		each product in products
+		each article in press
 				tr
-					td= product.idarticle
-					td= product.title
-					td= product.text  
+					td= article.idarticle
+					td= article.title
+					td= article.text  
 					td 
-						img(src="/img/" + product.thumbnailName height="50")
+						img(src="/img/" + article.thumbnailName height="50")
 					td
-						a.btn.btn-primary(role='button' href="/admin/edit-product/" + product.idarticle) Modifier
+						a.btn.btn-primary(role='button' href="/admin/edit-article/" + article.idarticle) Modifier
 					td 
-						a.btn.btn-warning(role='button' href="/admin/delete-product/" + product.idarticle onclick="return confirm('Etes-vous certain de vouloir supprimer cet article?');" ) Supprimer
+						a.btn.btn-warning(role='button' href="/admin/delete-article/" + article.idarticle onclick="return confirm('Etes-vous certain de vouloir supprimer cet article?');" ) Supprimer
 						
