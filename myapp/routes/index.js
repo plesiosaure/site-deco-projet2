@@ -85,9 +85,9 @@ LEFT JOIN article_has_category ac
 ON a.idarticle = ac.article_idarticle
 LEFT JOIN media m
 ON a.idarticle = m.article_idarticle
-WHERE m.featured = 1 
-AND idarticle = ? 
-GROUP BY a.idarticle, m.thumbnailName` , [req.params.id], function (error, results, fields) {
+WHERE idarticle = ? 
+GROUP BY a.idarticle, m.thumbnailName 
+ORDER by m.featured DESC` , [req.params.id], function (error, results, fields) {
       if (results.length == 0) {
         res.send("Erreur");
       } else {
@@ -165,7 +165,7 @@ router.get('/login', function (req, res, next) {
     res.redirect('/admin');
   }
   else {
-    res.render('login');
+    res.render('login',{login:true});
   }
 
 });
