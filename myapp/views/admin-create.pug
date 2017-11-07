@@ -18,5 +18,9 @@ block content
 			option(value= "2") Articles de presse
 		br
 		br
-		button.btn.btn-primary(type='submit') Enregistrer
+		.row 
+			.col-sm-1
+				button.btn.btn-primary(type='submit') Enregistrer
+			.col-sm-1
+				a.btn.btn-danger(role='button' href="/admin" onclick="return confirm('Etes-vous certain de vouloir annuler vos modifications ?');" ) Annuler
 

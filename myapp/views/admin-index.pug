@@ -1,13 +1,12 @@
 extends layout2
 
 block content
-	a.btn.btn-warning(role='button' href='/admin/logout') se déconnecter
 	
 	h1 Administration des articles
 	a.btn.btn-primary(role='button' href="/admin/create-article") Ajouter un article
 
 	h2 Réalisations
-	table.text-center(border="1" width="100%" cellpadding="5")
+	table.table.text-center.table-striped
 		thead
 			tr
 				th.text-center #
@@ -29,7 +28,7 @@ block content
 						a.btn.btn-warning(role='button' href="/admin/delete-article/" + article.idarticle onclick="return confirm('Etes-vous certain de vouloir supprimer cet article?');" ) Supprimer
 						
 	h2 Articles de presse
-	table.text-center(border="1" width="100%" cellpadding="5")
+	table.table.text-center.table-striped
 		thead
 			tr
 				th.text-center #
