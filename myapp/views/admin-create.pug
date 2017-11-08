@@ -7,18 +7,23 @@ block content
 	h1 Nouvel article
 	form(method="POST" enctype="multipart/form-data")
 		.form-group
-			label(for='title') Titre de l'article
-			input#title.form-control(type='text', placeholder='Appartement 50 m2' name='title')
+			label(for='category') Choisissez une catégorie
+			select#category.form-control(name= "category")
+				option(value= "1") Réalisations
+				option(value= "2") Articles de presse
+		.form-group
+			label(for='title') Titre de l'article *
+			input#title.form-control(type='text', placeholder='Appartement 50 m2' name='title' required)
 		.form-group
 			label(for='text') Texte de l'article
 			textarea#text.form-control(placeholder='Description' name='text')
 		.form-group
 			label(for="images") Ajouter une ou plusieurs images
 			input#images(type="file" name="article_sourceName" multiple)
-		select(name= "category")
-			optgroup(label="Category" text="bold")
-			option(value= "1") Réalisations
-			option(value= "2") Articles de presse
+		.form-group
+			label(for='url') URL du média principal si nécessaire
+			input#url.form-control(type='url', placeholder='http://www.lefigaro.fr' name='url')
+	
 		br
 		br
 		.row 
@@ -27,3 +32,5 @@ block content
 			.col-sm-1
 				a.btn.btn-danger(role='button' href="/admin" onclick="return confirm('Etes-vous certain de vouloir annuler vos modifications ?');" ) Annuler
 
+		br
+		|	* Ces champs sont requis
