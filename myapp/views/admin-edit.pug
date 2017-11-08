@@ -2,6 +2,9 @@ extends layout2
 
 block content
 	h1 Editer un article
+	a.btn.btn-primary(role='button' href='/admin') &laquo; Retour
+	if message
+		p.alert.alert-success=message
 	form(method="POST" enctype="multipart/form-data")
 		.form-group
 			label(for='title') Titre de l'article
@@ -9,6 +12,7 @@ block content
 		.form-group
 			label(for='text') Texte de l'article
 			textarea#text.form-control( name='text')=article.text
+			
 		.form-group
 			table.table.text-center.table-striped
 				thead
@@ -21,8 +25,8 @@ block content
 					tr
 						
 						td 
-							img(src="/img/" + image.thumbnailName height="50")
-						td
+							img(src="/img/" + image.thumbnailName width="200")
+						td.text-left
 							.form-check
 								label.form-check-label(for="featured"+image.idmedia) 
 									input.form-check-input(id="featured"+image.idmedia type="radio" name="featured" value=image.idmedia checked=image.featured==1)
@@ -32,13 +36,19 @@ block content
 							.form-check
 								label.form-check-label(for="suppr"+image.idmedia) 
 									input.form-check-input(id="suppr"+image.idmedia type="checkbox" name="suppr[]" value=image.idmedia)
-									|	Sélectionner pour supprimer l'image
+									|	Cocher pour supprimer l'image
+								br
+								br
+							if image.featured
+								.form-group
+									label(for='url') URL du média
+									input#url.form-control(type='url', placeholder='http://www.lefigaro.fr' name='url' value=image.url)
+		
 			
 						
 			.form-group
 				label(for="images") Ajouter une ou plusieurs images
-			
-				input(id="images" type="file" name="article_sourceName" multiple)
+				input.form-control(id="images" type="file" name="article_sourceName" multiple)
 
 
 			
@@ -47,6 +57,7 @@ block content
 					button.btn.btn-primary(type='submit') Enregistrer
 				.col-sm-1
 					a.btn.btn-danger(role='button' href="/admin" onclick="return confirm('Etes-vous certain de vouloir annuler vos modifications ?');" ) Annuler
+
 
 
 		

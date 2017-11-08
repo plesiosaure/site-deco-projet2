@@ -69,7 +69,7 @@ header.homehead h1 span {
     text-transform: uppercase;
     font-size: 2em;
     display: block;
-    margin-top: 30px;
+    margin-top: 10px;
  }   
 
 
@@ -313,6 +313,9 @@ p {
   font-weight: 100;
   width: 90%;
 }
+.pressmain p {
+    margin:  2rem 0;
+}
 @media screen and (min-width: 37.5em) {
   p {
     height: 70%;
@@ -477,7 +480,7 @@ p {
     width: 100%;
     height: 100%;
     opacity: 0;
-    background: #1ee2e7;
+    background: grey;
     -webkit-transition: all ease .5s;
     -moz-transition: all ease .5s;
     transition: all ease .5s;
@@ -603,6 +606,13 @@ p {
     transform: rotate(90deg);
 }
 
+#portfolio.bg-light-gray .text-muted {
+    width: 300px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    text-align: center;
+}
 
 .real1title {
   text-align: center;
@@ -625,9 +635,21 @@ p.detail-description {
     display: block;
 }
 
+.imgreal {
+  width: 500px;
+  height: 250px;
+}
 
+@media (max-width: 992px){
+  .container {
 
+  }
+}
+@media (max-width: 768px){
+  .container {
 
+  }
+}
 @media(max-width: 767px){
      
      .xs-center{
@@ -690,6 +712,82 @@ p.detail-description {
         margin: 0 0 30px;
     }
 }
+
+
+
+
+.words{
+  font-size:20px;
+  letter-spacing: 3px;
+  font-family: 'Roboto', sans-serif;
+
+}
+.words-1 span{
+  color: white;
+  position: absolute;
+  opacity: 0;
+  overflow: hidden;
+  -webkit-animation: rotateWord 12s ease-in-out infinite 0s;
+  -ms-animation: rotateWord 12s ease-in-out infinite 0s;
+  animation: rotateWord 12s ease-in-out infinite 0s;
+  font-family: 'Roboto', sans-serif;
+}
+.words-1 span:nth-child(2) { 
+    -webkit-animation-delay: 3s; 
+  -ms-animation-delay: 3s; 
+  animation-delay: 3s; 
+  color: white;
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: 1px;
+}
+.words-1 span:nth-child(3) { 
+    -webkit-animation-delay: 6s; 
+  -ms-animation-delay: 6s; 
+  animation-delay: 6s; 
+  color: white; 
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: 1px;
+}
+.words-1 span:nth-child(4) { 
+    -webkit-animation-delay: 9s; 
+  -ms-animation-delay: 9s; 
+  animation-delay: 9s; 
+  color: white;
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: 1px;
+}
+@-webkit-keyframes rotateWord {
+    0% { opacity: 0; }
+    2% { opacity: 0; -webkit-transform: translateY(-30px); }
+  5% { opacity: 1; -webkit-transform: translateY(0px);}
+    17% { opacity: 1; -webkit-transform: translateY(0px); }
+  20% { opacity: 0; -webkit-transform: translateY(30px); }
+  80% { opacity: 0; }
+    100% { opacity: 0; }
+}
+@-ms-keyframes rotateWord {
+    0% { opacity: 0; }
+    2% { opacity: 0; -ms-transform: translateY(-30px); }
+  5% { opacity: 1; -ms-transform: translateY(0px);}
+    17% { opacity: 1; -ms-transform: translateY(0px); }
+  20% { opacity: 0; -ms-transform: translateY(30px); }
+  80% { opacity: 0; }
+    100% { opacity: 0; }
+}
+@keyframes rotateWord {
+    0% { opacity: 0; }
+    2% { opacity: 0; -webkit-transform: translateY(-30px); transform: translateY(-30px); }
+  5% { opacity: 1; -webkit-transform: translateY(0px); transform: translateY(0px);}
+    17% { opacity: 1; -webkit-transform: translateY(0px); transform: translateY(0px); }
+  20% { opacity: 0; -webkit-transform: translateY(30px); transform: translateY(30px); }
+  80% { opacity: 0; }
+    100% { opacity: 0; }
+}
+@media screen and (max-width: 768px){
+  .sentence span { font-size: 30px; }
+  .words{font-size: 35px;}
+  .hero_wrapper{margin-left:10%;}
+ 
 
 
 

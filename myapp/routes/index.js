@@ -86,7 +86,7 @@ ON a.idarticle = ac.article_idarticle
 LEFT JOIN media m
 ON a.idarticle = m.article_idarticle
 WHERE idarticle = ? 
-GROUP BY a.idarticle, m.thumbnailName 
+GROUP BY a.idarticle, m.thumbnailName, m.featured 
 ORDER by m.featured DESC` , [req.params.id], function (error, results, fields) {
       if (results.length == 0) {
         res.send("Erreur");
@@ -102,7 +102,7 @@ ORDER by m.featured DESC` , [req.params.id], function (error, results, fields) {
 
 router.get('/presse', function (req, res, next) {
   //res.sendFile(__dirname+'/public/realisations.html');
-  connection.query(`SELECT a.idarticle, a.title, a.text, m.thumbnailName
+  connection.query(`SELECT a.idarticle, a.title, a.text, m.thumbnailName, m.url
   FROM article a
   LEFT JOIN article_has_category ac
   ON a.idarticle = ac.article_idarticle
@@ -112,7 +112,7 @@ router.get('/presse', function (req, res, next) {
   ON a.idarticle = m.article_idarticle
   WHERE m.featured = 1 
   AND c.idcategory = 2
-  GROUP BY a.idarticle, m.thumbnailName` , function (error, results, fields) {
+  GROUP BY a.idarticle, m.thumbnailName, m.url` , function (error, results, fields) {
         if (results.length == 0) {
           res.send("Erreur");
         } else {

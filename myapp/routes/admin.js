@@ -100,8 +100,8 @@ router.post('/create-article', upload.array('article_sourceName', 6), function(r
         if (f.size < (3*1024*1024) && (f.mimetype == 'image/png' || f.mimetype == 'image/jpg' || f.mimetype == 'image/jpeg'))
         {
           fs.rename(f.path,'public/img/'+f.originalname);
-          connection.query("insert into media values(null, 'img', '', 'legend', ?, ?, ?, ?)",
-          [f.originalname, f.originalname, results.insertId, index==0], function (error, results, fields) {
+          connection.query("insert into media values(null, 'img', ?, 'legend', ?, ?, ?, ?)",
+          [req.body.url,f.originalname, f.originalname, results.insertId, index==0], function (error, results, fields) {
             if (error) throw error;
           });
         } else {
@@ -153,7 +153,7 @@ router.post('/edit-article/:idarticle(\\d+)', upload.array('article_sourceName',
        console.log(this.sql);
        if (error) throw error;
      });
-     connection.query('update media set featured = (idmedia=?) where article_idarticle=?', [req.body.featured, req.params.idarticle], function(error){
+     connection.query('update media set url=?, featured = (idmedia=?) where article_idarticle=?', [req.body.url,req.body.featured, req.params.idarticle], function(error){
        console.log(this.sql);
        if (error) throw error;
      });
@@ -176,7 +176,7 @@ router.post('/edit-article/:idarticle(\\d+)', upload.array('article_sourceName',
      });
 
       console.log(error);
-     res.redirect('/admin')
+     res.redirect('/admin/edit-article/'+req.params.idarticle)
 
     });
   }
