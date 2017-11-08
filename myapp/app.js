@@ -34,7 +34,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static('public'));
 
-console.log('favicon')
 const Session = require('express-session');
 const FileStore = require('session-file-store')(Session);
 
