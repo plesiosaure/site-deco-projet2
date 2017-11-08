@@ -2,6 +2,7 @@ extends layout2
 
 block content
 	h1 Editer un article
+	a.btn.btn-primary(role='button' href='/admin') &laquo; Retour
 	if message
 		p.alert.alert-success=message
 	form(method="POST" enctype="multipart/form-data")

@@ -12,7 +12,7 @@ block content
             .dummy-logo
               h2= articles[0].title
             .detail-description
-            p= articles[0].text
+            p!= articles[0].text
       each image in articles
         .row
           .imgdetail

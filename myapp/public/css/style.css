@@ -606,7 +606,7 @@ p {
     transform: rotate(90deg);
 }
 
-.text-muted {
+#portfolio.bg-light-gray .text-muted {
     width: 300px;
     text-overflow: ellipsis;
     overflow: hidden;
