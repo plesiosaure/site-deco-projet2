@@ -606,13 +606,13 @@ p {
     transform: rotate(90deg);
 }
 
-#portfolio.bg-light-gray .text-muted {
+/* #portfolio.bg-light-gray .text-muted {
     width: 300px;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
     text-align: center;
-}
+}*/
 
 .real1title {
   text-align: center;

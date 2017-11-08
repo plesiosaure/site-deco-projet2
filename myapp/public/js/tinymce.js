@@ -1,6 +1,6 @@
  tinymce.init({
  selector: "textarea#text",
- height: 550,
+ height: 200,
  theme: 'modern',
  setup: function (editor) {
  editor.on('change', function () {
