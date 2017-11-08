@@ -40,6 +40,7 @@ ON a.idarticle = m.article_idarticle
 WHERE m.featured = 1
 AND c.idcategory = 1
 GROUP BY a.idarticle, m.thumbnailName
+ORDER BY lastUpdate DESC
 LIMIT 6` , function (error, results, fields) {
       if (results.length == 0) {
         res.send("Erreur");
