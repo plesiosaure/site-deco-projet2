@@ -22,7 +22,7 @@ block content
 				tr
 					td= article.idarticle
 					td= article.title
-					td= article.text  
+					td!= article.text  
 					td 
 						img(src="/img/" + article.thumbnailName height="50")
 					td
@@ -44,7 +44,7 @@ block content
 				tr
 					td= article.idarticle
 					td= article.title
-					td= article.text  
+					td!= article.text  
 					td 
 						img(src="/img/" + article.thumbnailName height="50")
 					td
