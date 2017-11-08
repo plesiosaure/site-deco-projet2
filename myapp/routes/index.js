@@ -86,7 +86,7 @@ ON a.idarticle = ac.article_idarticle
 LEFT JOIN media m
 ON a.idarticle = m.article_idarticle
 WHERE idarticle = ? 
-GROUP BY a.idarticle, m.thumbnailName 
+GROUP BY a.idarticle, m.thumbnailName, m.featured 
 ORDER by m.featured DESC` , [req.params.id], function (error, results, fields) {
       if (results.length == 0) {
         res.send("Erreur");
