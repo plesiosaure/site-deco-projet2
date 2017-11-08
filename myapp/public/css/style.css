@@ -313,6 +313,9 @@ p {
   font-weight: 100;
   width: 90%;
 }
+.pressmain p {
+    margin:  2rem 0;
+}
 @media screen and (min-width: 37.5em) {
   p {
     height: 70%;
