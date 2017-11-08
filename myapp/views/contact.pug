@@ -15,13 +15,13 @@ block content
           input#name.form-control(type='name', placeholder='Votre nom, prénom', name='name')
         .form-group
           label(for='email')
-          input#email.form-control(type='email', placeholder='Votre adresse mail: mail@exemple.com', name='email')
+          input#email.form-control(type='email', placeholder='Votre adresse mail: mail@exemple.com', name='email' required)
         .form-group
           label(for='pwd')
           input#subject.form-control(type='text', placeholder='Le sujet', name='subject')
         .form-group
           label(for='comment') Votre demande:
-          textarea#comment.form-control(rows='5', placeholder='Votre texte', name='text')
+          textarea#comment.form-control(rows='5', placeholder='Votre texte', name='text' required)
         
         .g-recaptcha(data-sitekey='6LcOVDQUAAAAAIXf5Qh5BgqtjXaW2U_JNEFbZVWE')
         br
